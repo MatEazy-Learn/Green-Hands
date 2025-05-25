@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>All Articles</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body class="bg-gray-100">
+   <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="#" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="#" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+  <div class="max-w-5xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">All Available to Read</h1>
+
+    <!-- Search Bar -->
+    <div class="mb-6">
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search for a course..." 
+        class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+      />
+    </div>
+
+    <!-- Courses Grid -->
+    <div id="coursesGrid" class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <!-- Water Pump Project for Nyala Card -->
+      <div class="course-card bg-white rounded-xl shadow-md overflow-hidden  hover:shadow-lg transition cursor-pointer" data-title="Water Pump Project for Nyala">
+        <a href="project/Water-Pump-Project for-Nyala.html">
+          <div class="h-40 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+            <img src="image/Water-Pump-Station.webp" alt="Water Pump Project">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Water Pump Project for Nyala</h3>
+            <p class="text-gray-600 mb-4">Building wells and water purification systems in communities without access to clean drinking water.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Sudan Chemical Safety Card -->
+      <div class="course-card bg-white rounded-xl shadow-md overflow-hidden  hover:shadow-lg transition cursor-pointer" data-title="Sudan Chemical Safety">
+        <a href="articles/Sudan-Chemical-Safety.html">
+          <div class="h-40 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+            <img src="image/Chemical.avif" alt="Water Pump Project">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Sudan Chemical Safety</h3>
+            <p class="text-gray-600 mb-4">Chemical Weapons Threat in Sudan - This guide provides life-saving information.</p>
+          </div>
+        </a>
+      </div>
+        <!-- Sudan's Paradox Card -->
+        <div class="course-card bg-white rounded-xl shadow-md overflow-hidden  hover:shadow-lg transition cursor-pointer" data-title="Sudan's Paradox">
+            <a href="articles/Sudan-Paradox.html">
+              <div class="h-40 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+                <img src="image/water-fetching.webp" alt="Water Pump Project">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-800">Sudan's Paradox</h3>
+                <p class="text-gray-600 mb-4">Sudan: A Land Rich in Gold, Yet Thirsting for Water.</p>
+              </div>
+            </a>
+        </div>
+         <!-- Earthquake Sudan Card -->
+        <div class="course-card bg-white rounded-xl shadow-md overflow-hidden  hover:shadow-lg transition cursor-pointer" data-title="Earthquake Sudan">
+            <a href="articles/Sudan-Resilience.html">
+              <div class="h-40 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+                <img src="image/Earthquake.jpeg" alt="Water Pump Project">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-800">Earthquake Sudan</h3>
+                <p class="text-gray-600 mb-4">Sudan: A Land Rich in Gold, Yet Thirsting for Water.</p>
+              </div>
+            </a>
+        </div>
+
+      <!-- Add more courses here -->
+    </div>
+  </div>
+
+      <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Articles</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to get updates about our work and how you can help.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-green-500 w-full">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2025 Green Hands. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Financial Reports</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+            <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="hidden fixed bottom-8 right-8 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+  
+
+  <!-- JavaScript for Live Search -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const courseCards = document.querySelectorAll(".course-card");
+
+    searchInput.addEventListener("keyup", function () {
+      const searchText = this.value.toLowerCase();
+
+      courseCards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        if (title.includes(searchText)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+            // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+                // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+
+        closeModal.addEventListener('click', function() {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+                // Newsletter subscription
+        const newsletterForms = document.querySelectorAll('form:has(input[placeholder="Your email address"]), form:has(input[placeholder="Your email"])');
+        newsletterForms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudan Earthquake Resilience Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(34, 122, 38, 0.9) 0%, rgba(56, 165, 74, 0.9) 100%);
+        }
+        .earthquake-icon {
+            animation: shake 0.5s infinite alternate;
+        }
+        @keyframes shake {
+            from { transform: translateX(-3px) rotate(-2deg); }
+            to { transform: translateX(3px) rotate(2deg); }
+        }
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            top: 2.5rem;
+            height: calc(100% - 2.5rem);
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="../index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="../about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="../articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="../index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="../about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="../articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    <span class="block">Building Earthquake Resilience</span>
+                    <span class="block">in Sudan</span>
+                </h1>
+                <p class="mt-6 max-w-lg mx-auto text-xl">
+                    Protecting vulnerable communities from seismic risks through education, infrastructure improvements, and early warning systems.
+                </p>
+                <div class="mt-10 flex justify-center space-x-4">
+                    <a href="#donate" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-green-700 bg-white hover:bg-gray-100">
+                        <i class="fas fa-donate mr-2"></i> Donate Now
+                    </a>
+                    <a href="#about" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-800 bg-opacity-60 hover:bg-opacity-70">
+                        <i class="fas fa-info-circle mr-2"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="text-center">
+                    <p class="text-5xl font-extrabold text-green-600">2%</p>
+                    <p class="mt-2 text-sm font-medium text-gray-500">Probability of damaging shaking in 50 years</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-5xl font-extrabold text-green-600">12.6M</p>
+                    <p class="mt-2 text-sm font-medium text-gray-500">People in fragile shelters at risk</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-5xl font-extrabold text-green-600">2</p>
+                    <p class="mt-2 text-sm font-medium text-gray-500">Earthquakes >4.0 annually</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-5xl font-extrabold text-green-600">0</p>
+                    <p class="mt-2 text-sm font-medium text-gray-500">Comprehensive building codes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="py-16 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                <div class="mt-12 relative lg:mt-0">
+                    <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
+                        <div class="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
+                            <img class="absolute inset-0 h-full w-full object-cover" src="../image/Earthquake.jpeg" alt="Sudan landscape">
+                            <div class="relative px-8">
+                                <blockquote class="mt-8">
+                                    <div class="relative text-lg font-medium text-white md:flex-grow">
+                                        <p class="relative">
+                                            "Sudan's combination of seismic risk and vulnerable infrastructure creates a perfect storm for disaster. We must act now to protect our communities."
+                                        </p>
+                                    </div>
+                                    <footer class="mt-4">
+                                        <p class="text-base font-semibold text-green-200">Dr. Amina Hassan, Seismologist</p>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="lg:pr-8">
+                        <div class="text-base max-w-prose mx-auto lg:max-w-none">
+                            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                                Understanding Sudan's Seismic Landscape
+                            </h2>
+                            <p class="mt-4 text-lg text-gray-600">
+                                Sudan, situated in a tectonically complex region of Northeast Africa, faces a <span class="font-semibold">low to moderate earthquake hazard</span>, with a 2% probability of potentially damaging shaking in any given area over the next 50 years.
+                            </p>
+                        </div>
+                        <div class="mt-8 space-y-6 text-gray-600">
+                            <p>
+                                While large-magnitude earthquakes are rare, historical data reveals notable events, such as the 6.2-magnitude quake near Kassala in 1915 and a 4.7-magnitude tremor east of Port Sudan in July 2024.
+                            </p>
+                            <p>
+                                Over the past decade, Sudan has experienced an average of two earthquakes annually with magnitudes above 4.0, primarily clustered near its eastern border with Ethiopia and Eritrea. These events, though typically minor, underscore the need for preparedness in a country already grappling with conflict, displacement, and strained infrastructure.
+                            </p>
+                            <div class="mt-8">
+                                <a href="#risks" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700">
+                                    Learn about key vulnerabilities
+                                    <i class="fas fa-arrow-down ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risks Section -->
+    <div id="risks" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Key Vulnerabilities in Sudan
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    Multiple factors combine to make Sudan particularly vulnerable to earthquake impacts
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Card 1 -->
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <i class="fas fa-city text-white text-2xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Urbanization & Infrastructure</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    Rapid, unplanned urbanization in cities like Khartoum and Port Sudan has led to poorly constructed buildings lacking seismic-resistant design. Limited enforcement of building codes and insufficient technical expertise exacerbate the problem.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-red-500 rounded-md shadow-lg">
+                                        <i class="fas fa-people-arrows text-white text-2xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Humanitarian Crises</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    Ongoing conflict and displacement have left over 12.6 million people internally displaced or living in fragile shelters, increasing their exposure to earthquake-related risks such as collapsing structures and landslides.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-yellow-500 rounded-md shadow-lg">
+                                        <i class="fas fa-tint text-white text-2xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Critical Infrastructure</h3>
+                                <p class="mt-5 text-base text-gray-600">
+                                    Dams, such as the Grand Ethiopian Renaissance Dam (GERD) near Sudan's border, highlight regional vulnerabilities. While designed to withstand seismic activity, hypothetical failures could devastate Sudan's low-lying Nile Basin.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solutions Section -->
+    <div id="solutions" class="py-16 bg-green-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Strategies for Mitigating Earthquake Risks
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto">
+                    A multi-faceted approach integrating technical, policy, and community-based interventions
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="space-y-16">
+                    <!-- Solution 1 -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                                <i class="fas fa-building text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:ml-6">
+                            <h3 class="text-lg font-medium text-gray-900">1. Strengthening Building Standards</h3>
+                            <p class="mt-2 text-base text-gray-600">
+                                Sudan lacks comprehensive building regulations tailored to earthquake hazards. Adopting and enforcing standards from low-seismic-risk regions can reduce structural vulnerabilities. Training engineers in earthquake-resistant design is critical, with potential collaborations with international institutions.
+                            </p>
+                            <div class="mt-4">
+                                <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                    <li>Enforce seismic-resistant building codes</li>
+                                    <li>Invest in technical expertise through international partnerships</li>
+                                    <li>Conduct soil and site assessments before construction</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solution 2 -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                                <i class="fas fa-bell text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:ml-6">
+                            <h3 class="text-lg font-medium text-gray-900">2. Early Warning Systems & Preparedness</h3>
+                            <p class="mt-2 text-base text-gray-600">
+                                Raising awareness about earthquake risks through local campaigns can empower residents to respond effectively. Implementing sensor-based systems to detect tremors and issue alerts would provide critical seconds for evacuation.
+                            </p>
+                            <div class="mt-4">
+                                <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                    <li>Community education programs in schools and displacement camps</li>
+                                    <li>Installation of early warning infrastructure</li>
+                                    <li>Regular earthquake drills and response training</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solution 3 -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
+                                <i class="fas fa-hands-helping text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:ml-6">
+                            <h3 class="text-lg font-medium text-gray-900">3. Integrating DRR into Humanitarian Efforts</h3>
+                            <p class="mt-2 text-base text-gray-600">
+                                Sudan's ongoing humanitarian crises demand that earthquake preparedness be woven into broader disaster response plans. Upgrading temporary shelters in displacement camps to withstand seismic shocks is essential given their exposure to collapsing structures.
+                            </p>
+                            <div class="mt-4">
+                                <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                    <li>Reinforce displacement camps with seismic-resistant designs</li>
+                                    <li>Leverage international support through the Sudan Crisis Response Plan</li>
+                                    <li>Expand funding for disaster risk reduction initiatives</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solution 4 -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-yellow-500 text-white">
+                                <i class="fas fa-file-invoice-dollar text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 md:mt-0 md:ml-6">
+                            <h3 class="text-lg font-medium text-gray-900">4. Policy & Financial Safeguards</h3>
+                            <p class="mt-2 text-base text-gray-600">
+                                Encouraging insurance coverage for critical infrastructure and households can mitigate financial losses. Regional cooperation with Ethiopia and Egypt on dam safety and seismic monitoring could prevent cascading disasters.
+                            </p>
+                            <div class="mt-4">
+                                <ul class="list-disc pl-5 space-y-2 text-gray-600">
+                                    <li>Promote earthquake insurance for infrastructure and households</li>
+                                    <li>Foster cross-border collaboration on seismic monitoring</li>
+                                    <li>Develop emergency response protocols for high-risk areas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Study Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                <div class="relative">
+                    <div class="lg:pr-8">
+                        <div class="text-base max-w-prose mx-auto lg:max-w-none">
+                            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                                Lessons from Global Practices
+                            </h2>
+                            <p class="mt-4 text-lg text-gray-600">
+                                Countries like the United States, where cities such as Memphis (Tennessee) face similar moderate risks, offer valuable insights for Sudan.
+                            </p>
+                        </div>
+                        <div class="mt-8 space-y-6 text-gray-600">
+                            <p>
+                                Memphis, located near the New Madrid Seismic Zone, prioritizes earthquake-engineered infrastructure and public education. Sudan could emulate these strategies by:
+                            </p>
+                            <div class="mt-6">
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Conducting vulnerability assessments for high-risk urban areas</li>
+                                    <li>Prioritizing retrofitting of hospitals, schools, and government buildings</li>
+                                    <li>Establishing emergency response protocols tailored to localized risks</li>
+                                    <li>Developing public education campaigns about earthquake preparedness</li>
+                                </ul>
+                            </div>
+                            <p class="mt-6">
+                                These measures have proven effective in reducing earthquake risks in regions with similar seismic profiles to Sudan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 relative lg:mt-0">
+                    <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
+                        <div class="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
+                            <img class="absolute inset-0 h-full w-full object-cover" src="../image/marct.jpg" alt="Earthquake drill">
+                            <div class="absolute inset-0 bg-green-600 mix-blend-multiply"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-green-600 via-green-600 opacity-10"></div>
+                            <div class="relative px-8">
+                                <div class="text-lg font-medium text-white">
+                                    <p>
+                                        "Preparedness saves lives. What we've learned in Memphis can help communities worldwide facing similar seismic risks."
+                                    </p>
+                                    <p class="mt-4 font-semibold text-green-200">
+                                        Dr. Sarah Johnson, Earthquake Preparedness Expert
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donation Section -->
+    <div id="donate" class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Support Earthquake Resilience in Sudan
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-300 mx-auto">
+                    Your donation can help implement critical earthquake preparedness measures
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Donation Tier 1 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-300 donation-card">
+                    <div class="px-6 py-8 sm:p-10 sm:pb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-home text-green-600 text-2xl mr-3"></i>
+                            <h3 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">Shelter Safety</h3>
+                        </div>
+                        <p class="mt-6 text-base text-gray-600">
+                            Help reinforce one displacement camp shelter to withstand seismic shocks
+                        </p>
+                        <div class="mt-6 flex items-baseline text-4xl font-extrabold">
+                            <span class="text-gray-900">$50</span>
+                        </div>
+                        <div class="mt-6 relative">
+                            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-8 sm:px-10">
+                        <ul role="list" class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Materials for one reinforced shelter</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Training for local builders</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Donation Tier 2 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-300 donation-card">
+                    <div class="px-6 py-8 sm:p-10 sm:pb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-school text-green-600 text-2xl mr-3"></i>
+                            <h3 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">School Safety</h3>
+                        </div>
+                        <p class="mt-6 text-base text-gray-600">
+                            Fund earthquake preparedness training for one school
+                        </p>
+                        <div class="mt-6 flex items-baseline text-4xl font-extrabold">
+                            <span class="text-gray-900">$250</span>
+                        </div>
+                        <div class="mt-6 relative">
+                            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-8 sm:px-10">
+                        <ul role="list" class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Teacher training materials</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Student drills and education</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Basic emergency supplies</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Donation Tier 3 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-300 donation-card">
+                    <div class="px-6 py-8 sm:p-10 sm:pb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-broadcast-tower text-green-600 text-2xl mr-3"></i>
+                            <h3 class="text-2xl font-extrabold text-gray-900 sm:text-3xl">Early Warning</h3>
+                        </div>
+                        <p class="mt-6 text-base text-gray-600">
+                            Support installation of one early warning sensor
+                        </p>
+                        <div class="mt-6 flex items-baseline text-4xl font-extrabold">
+                            <span class="text-gray-900">$1,000</span>
+                        </div>
+                        <div class="mt-6 relative">
+                            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-8 sm:px-10">
+                        <ul role="list" class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Seismic sensor equipment</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Community alert system</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Maintenance for 1 year</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-600">Training for local operators</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Donation Form -->
+            <div class="mt-16 max-w-lg mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                <div class="md:flex">
+                    <div class="p-8">
+                        <div class="uppercase tracking-wide text-sm text-green-600 font-semibold">Other Amount</div>
+                        <p class="mt-2 text-gray-600">Enter a custom donation amount to support our earthquake resilience efforts</p>
+                        <form class="mt-6">
+                            <div class="mb-4">
+                                <label for="amount" class="block text-gray-700 text-sm font-bold mb-2">Donation Amount ($)</label>
+                                <input type="number" id="amount" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="100">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Payment Method</label>
+                                <div class="flex space-x-4">
+                                    <a href="https://buymeacoffee.com/greenhands">
+                                        <button type="button" class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                            <i class="fab fa-cc-visa text-2xl text-green-800"></i>
+                                        </button>
+                                    </a>
+                                    <a href="https://buymeacoffee.com/greenhands">
+                                        <button type="button" class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                            <i class="fab fa-cc-mastercard text-2xl text-red-700"></i>
+                                        </button>
+                                    </a>
+                                    <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                                        <button type="button" class="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                            <i class="fab fa-cc-paypal text-2xl text-green-600"></i>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="button">
+                                    <i class="fas fa-lock mr-2"></i> Secure Donation
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Impact Timeline -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Your Impact Timeline
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+                    How your donation makes a difference over time
+                </p>
+            </div>
+
+            <div class="mt-16 flow-root">
+                <ul class="-mb-8">
+                    <li class="relative timeline-item">
+                        <div class="relative flex items-start space-x-3">
+                            <div>
+                                <div class="relative px-1">
+                                    <div class="h-8 w-8 bg-green-500 rounded-full ring-8 ring-white flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-0 flex-1 py-1.5">
+                                <div class="text-sm text-gray-500">
+                                    <span class="font-medium text-gray-900">Day 1</span> - Your donation is received and allocated to the most urgent needs
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="relative timeline-item">
+                        <div class="relative flex items-start space-x-3">
+                            <div>
+                                <div class="relative px-1">
+                                    <div class="h-8 w-8 bg-green-500 rounded-full ring-8 ring-white flex items-center justify-center">
+                                        <span class="text-white text-sm">1W</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-0 flex-1 py-1.5">
+                                <div class="text-sm text-gray-500">
+                                    <span class="font-medium text-gray-900">Week 1</span> - Local teams begin assessments in target communities
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="relative timeline-item">
+                        <div class="relative flex items-start space-x-3">
+                            <div>
+                                <div class="relative px-1">
+                                    <div class="h-8 w-8 bg-green-500 rounded-full ring-8 ring-white flex items-center justify-center">
+                                        <span class="text-white text-sm">1M</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-0 flex-1 py-1.5">
+                                <div class="text-sm text-gray-500">
+                                    <span class="font-medium text-gray-900">Month 1</span> - Training programs begin for builders and community leaders
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="relative timeline-item">
+                        <div class="relative flex items-start space-x-3">
+                            <div>
+                                <div class="relative px-1">
+                                    <div class="h-8 w-8 bg-green-500 rounded-full ring-8 ring-white flex items-center justify-center">
+                                        <span class="text-white text-sm">3M</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-0 flex-1 py-1.5">
+                                <div class="text-sm text-gray-500">
+                                    <span class="font-medium text-gray-900">Month 3</span> - First reinforced shelters are completed in displacement camps
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="relative timeline-item">
+                        <div class="relative flex items-start space-x-3">
+                            <div>
+                                <div class="relative px-1">
+                                    <div class="h-8 w-8 bg-green-500 rounded-full ring-8 ring-white flex items-center justify-center">
+                                        <span class="text-white text-sm">6M</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-0 flex-1 py-1.5">
+                                <div class="text-sm text-gray-500">
+                                    <span class="font-medium text-gray-900">Month 6</span> - Early warning systems installed in high-risk areas
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="relative timeline-item">
+                        <div class="relative flex items-start space-x-3">
+                            <div>
+                                <div class="relative px-1">
+                                    <div class="h-8 w-8 bg-green-500 rounded-full ring-8 ring-white flex items-center justify-center">
+                                        <span class="text-white text-sm">1Y</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="min-w-0 flex-1 py-1.5">
+                                <div class="text-sm text-gray-500">
+                                    <span class="font-medium text-gray-900">Year 1</span> - Communities report increased preparedness and reduced vulnerability
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conclusion CTA -->
+    <div class="bg-green-700">
+        <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                <span class="block">While Sudan's earthquake hazard is classified as low,</span>
+                <span class="block">its compounding vulnerabilities amplify potential impacts.</span>
+            </h2>
+            <p class="mt-4 text-lg leading-6 text-green-200">
+                A proactive approach combining technical upgrades, community engagement, and policy reforms is essential to protect cities and save lives.
+            </p>
+            <a href="#donate" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:bg-green-50 sm:w-auto">
+                <i class="fas fa-hands-helping mr-2"></i> Support Our Work
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400">
+                         Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="../articles.html" class="text-gray-400 hover:text-white transition">Articles</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>Greenhands550@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+249 123 456 789</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-500 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Green Hands. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="hidden fixed bottom-8 right-8 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+    </script>
+</body>
+</html>

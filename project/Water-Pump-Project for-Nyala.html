@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Pump Project for Nyala, Sudan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="icon" type="image/png" href="../logo.png">
+    <style>
+        .progress-bar {
+            height: 6px;
+            transition: width 0.5s ease;
+        }
+        .donate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            width: 2px;
+            height: 20px;
+            background-color: #4bf63b;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="../index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="../about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="../articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="../index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="../about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="../articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-green-700 text-white py-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Water Pump Project for Nyala, Sudan</h1>
+                <p class="text-xl mb-8">Providing clean water and flood resilience for 3,000+ civilians and school students in flood-prone areas</p>
+                
+                <div class="mb-8">
+                    <div class="flex justify-between mb-2">
+                        <span>Project Cost: $18,000</span>
+                        <span>5% Funded</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-yellow-400 h-2.5 rounded-full progress-bar" style="width: 5%"></div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="border-2 border-white px-6 py-3 rounded-full font-bold hover:bg-green-600 transition">
+                        <i class="fas fa-info-circle mr-2"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <img src="../image/Water-Pump-Station.webp" 
+                     alt="Water pump in Africa" 
+                     class="rounded-lg shadow-xl w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Facts -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-green-50 p-6 rounded-lg text-center">
+                    <i class="fas fa-dollar-sign text-green-600 text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">$18,000</h3>
+                    <p class="text-gray-600">Total Project Cost</p>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg text-center">
+                    <i class="fas fa-users text-green-600 text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">3,000+</h3>
+                    <p class="text-gray-600">Beneficiaries</p>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg text-center">
+                    <i class="fas fa-calendar-alt text-green-600 text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">2025</h3>
+                    <p class="text-gray-600">Implementation Year</p>
+                </div>
+                <div class="bg-green-50 p-6 rounded-lg text-center">
+                    <i class="fas fa-map-marker-alt text-green-600 text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">Nyala</h3>
+                    <p class="text-gray-600">South Darfur, Sudan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Project Overview</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700">Executive Summary</h3>
+                    <p class="text-gray-700 mb-6">
+                        This project addresses Nyala's critical water access and flood vulnerability challenges. 
+                        It proposes installing a submersible water pump system to ensure safe water supply while 
+                        integrating flood-resilient infrastructure. The total cost estimate is $18,000, aligning 
+                        with Sudanese water project benchmarks.
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700 mt-8">Background</h3>
+                    <p class="text-gray-700">
+                        Nyala, located in South Darfur, faces seasonal flooding due to wadi overflow and inadequate 
+                        drainage. A 2018 feasibility study highlighted the need for submersible pumps and elevated 
+                        water storage to mitigate flood risks. This project builds on the Water Supply Extension 
+                        Project (1986–1993) and incorporates modern flood resilience strategies.
+                    </p>
+                </div>
+                <div>
+                    <img src="../image/sudan-water-crisis.webp" 
+                         alt="African village" 
+                         class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+            
+            <div class="bg-green-800 text-white p-8 rounded-lg">
+                <h3 class="text-2xl font-semibold mb-4">Project Objectives</h3>
+                <ul class="grid md:grid-cols-2 gap-4">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+                        <span>Provide reliable water access to 3,000+ residents and students</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+                        <span>Mitigate flood risks through resilient infrastructure</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+                        <span>Leverage community-driven approaches (e.g., "Nafeer" system)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+                        <span>Ensure cost-effectiveness and long-term sustainability</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Project Impact</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 transition impact-card">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-hand-holding-water text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Clean Water Access</h3>
+                    <p class="text-gray-600 text-center">
+                        Direct access to clean water for 3,000+ people, reducing waterborne diseases and improving overall health.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 transition impact-card">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-school text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Education Benefits</h3>
+                    <p class="text-gray-600 text-center">
+                        School students will have reliable water access, improving attendance and learning conditions.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100 transition impact-card">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-shield-alt text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Flood Resilience</h3>
+                    <p class="text-gray-600 text-center">
+                        Flood-resilient infrastructure protects the water supply during seasonal floods, ensuring continuous access.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Technical Feasibility</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700">Proposed System</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-cog text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Submersible Pump</h4>
+                                <p class="text-gray-600">Model SX200-600, selected for durability and low maintenance in flood-prone areas</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-filter text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Water Treatment</h4>
+                                <p class="text-gray-600">Compact filtration unit to ensure potable water</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-water text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Storage</h4>
+                                <p class="text-gray-600">Elevated tank (10,000-liter capacity) to prevent flood contamination</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-project-diagram text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Distribution</h4>
+                                <p class="text-gray-600">Gravity-fed piped network to schools and communal taps</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700">Flood Resilience Integration</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-cubes text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Stabilized Soil Blocks (SSBs)</h4>
+                                <p class="text-gray-600">Used for pump housing and storage tank foundations to withstand flooding</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-bell text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Early Warning Systems</h4>
+                                <p class="text-gray-600">Partner with local authorities to integrate hydro-meteorological monitoring</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-8 bg-green-100 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">Community-Driven Approach</h4>
+                        <p class="text-gray-700">
+                            Leveraging the traditional "Nafeer" system of communal labor to ensure local ownership and participation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Breakdown -->
+    <section id="cost" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Cost Analysis</h2>
+            
+            <div class="overflow-x-auto mb-8">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                    <thead class="bg-green-800 text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Item</th>
+                            <th class="py-3 px-4 text-right">Cost (USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-3 px-4">Submersible Pump (SX200-600)</td>
+                            <td class="py-3 px-4 text-right">$6,500</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-3 px-4">Filtration Unit</td>
+                            <td class="py-3 px-4 text-right">$2,000</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4">Elevated Tank (10,000L)</td>
+                            <td class="py-3 px-4 text-right">$3,500</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-3 px-4">Piping & Installation</td>
+                            <td class="py-3 px-4 text-right">$2,500</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4">SSB Construction</td>
+                            <td class="py-3 px-4 text-right">$1,500</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-3 px-4">Community Training</td>
+                            <td class="py-3 px-4 text-right">$1,000</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4">Contingency & Misc.</td>
+                            <td class="py-3 px-4 text-right">$1,000</td>
+                        </tr>
+                        <tr class="bg-green-100 font-bold">
+                            <td class="py-3 px-4">Total</td>
+                            <td class="py-3 px-4 text-right">$18,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-600 mb-6">
+                    Cost assumptions based on Sudanese market rates. The project offers excellent value with 
+                    long-term sustainability built into the design.
+                </p>
+                <button class="bg-green-600 text-white px-8 py-3 rounded-full font-bold hover:bg-green-700 transition donate-btn">
+                    <i class="fas fa-donate mr-2"></i> Contribute to the Project
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Implementation Plan</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-6 relative">
+                    <!-- Timeline Item 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center relative timeline-item">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-green-600 font-bold">1</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Procurement</h3>
+                        <p class="text-gray-600 mb-2">June–July 2025</p>
+                        <p class="text-sm text-gray-500">Pump delivery, SSB production</p>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center relative timeline-item">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-green-600 font-bold">2</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Construction</h3>
+                        <p class="text-gray-600 mb-2">August 2025</p>
+                        <p class="text-sm text-gray-500">Tank installation, pipeline laying</p>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center relative timeline-item">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-green-600 font-bold">3</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Testing</h3>
+                        <p class="text-gray-600 mb-2">September 2025</p>
+                        <p class="text-sm text-gray-500">System commissioning, community training</p>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center relative">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <span class="text-green-600 font-bold">4</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Handover</h3>
+                        <p class="text-gray-600 mb-2">October 2025</p>
+                        <p class="text-sm text-gray-500">Operational launch before flood season</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Sustainability & Risk Management</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700">Sustainability Measures</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-users-cog text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Community Ownership</h4>
+                                <p class="text-gray-600">Establish a water user association for maintenance</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-solar-panel text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Energy Efficiency</h4>
+                                <p class="text-gray-600">Solar-powered pump option explored in future phases</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chart-line text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Monitoring</h4>
+                                <p class="text-gray-600">Biannual performance reviews with UN-Habitat metrics</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700">Risk Assessment</h3>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-700 mb-1">Risk: Flood damage during construction</h4>
+                            <p class="text-gray-700">
+                                <span class="font-medium">Mitigation:</span> Use SSBs for temporary flood barriers
+                            </p>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-yellow-700 mb-1">Risk: Pump maintenance challenges</h4>
+                            <p class="text-gray-700">
+                                <span class="font-medium">Mitigation:</span> Train local technicians; stock spare parts
+                            </p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-700 mb-1">Risk: Community resistance</h4>
+                            <p class="text-gray-700">
+                                <span class="font-medium">Mitigation:</span> Engage "Nafeer" committees for oversight
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-green-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Help Bring Clean Water to Nyala</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Your donation will directly impact 3,000+ people in Nyala, providing them with reliable 
+                access to clean water and protection from seasonal floods.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400">
+                         Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Project</a></li>
+                        <li><a href="#impact" class="text-gray-400 hover:text-white transition">Impact</a></li>
+                        <li><a href="#cost" class="text-gray-400 hover:text-white transition">Cost Breakdown</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>Greenhands550@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+249 123 456 789</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-500 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Green Hands. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+ <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+         // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+        // Simple donation amount selector
+        document.addEventListener('DOMContentLoaded', function() {
+            const donateButtons = document.querySelectorAll('.donate-btn');
+            
+            donateButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Thank you for your interest in donating! A donation form would appear here.');
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

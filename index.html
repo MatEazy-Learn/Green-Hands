@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Hands Charity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* Custom CSS for elements that need more styling than Tailwind provides */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1500993855538-c6a99f437aa7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') ;
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        
+        .donation-meter {
+            height: 10px;
+            background-color: #e5e7eb;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .donation-progress {
+            height: 100%;
+            background-color: #3a7d44;
+            width: 0%;
+            transition: width 1s ease-in-out;
+        }
+        
+        .cause-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .volunteer-form input,
+        .volunteer-form textarea {
+            transition: all 0.3s ease;
+        }
+        
+        .volunteer-form input:focus,
+        .volunteer-form textarea:focus {
+            border-color: #3a7d44;
+            box-shadow: 0 0 0 3px rgba(96, 246, 59, 0.2);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="#causes" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Our Causes</a>
+                <a href="articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="#causes" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Our Causes</a>
+            <a href="articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-center text-white">
+        <div class="max-w-4xl px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Together We Can Make a Difference</h1>
+            <p class="text-xl md:text-2xl mb-8">Join us in our mission to bring hope and help to those in need. Every contribution counts.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-transparent hover:bg-white hover:text-green-600 text-white border-2 border-white px-6 py-3 rounded-md text-lg font-semibold">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">About Green Hands Charity</h2>
+                    <p class="text-gray-600 mb-6">
+                        At *Green Hands*, we believe that youth are the driving force for change. United, committed, and in action, we aim to make a positive difference—supporting people and nature to grow. We plant hope together and offer a helping hand to every corner in need.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        Our team works tirelessly to address critical needs in underserved communities, focusing on education, healthcare, and economic development. We measure our success not by the size of our organization, but by the impact we create.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-2">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Transparent Operations</p>
+                                <p class="text-gray-500 text-sm">90% of donations go directly to programs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-2">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Proven Impact</p>
+                                <p class="text-gray-500 text-sm">Verified results in all our initiatives</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-2">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700 font-medium">Community Focused</p>
+                                <p class="text-gray-500 text-sm">Solutions designed with local input</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="group-work.jpg" alt="Volunteers helping community" class="rounded-lg shadow-xl w-full">
+                    <div class="absolute -bottom-6 -right-6 bg-green-600 text-white p-6 rounded-lg shadow-lg max-w-xs">
+                        <div class="text-3xl font-bold">4+</div>
+                        <div class="text-lg">Years of Service</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Causes Section -->
+    <section id="causes" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Causes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We focus on several key areas where we can make the most impact. Your support helps us continue this important work.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cause 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden cause-card transition duration-300">
+                    <img src="image/Clean-Water.jpeg.webp" alt="Clean water project" class="w-full h-48 object-cover">
+                    <a href="project/Water-Pump-Project for-Nyala.html">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 rounded-full p-2 mr-3">
+                                <i class="fas fa-tint text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Water Pump Project for Nyala</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Building wells and water purification systems in communities without access to clean drinking water.</p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm text-gray-500 mb-1">
+                                <span>Raised: $300</span>
+                                <span>Goal: $18,000</span>
+                            </div>
+                            <div class="donation-meter">
+                                <div class="donation-progress" style="width: 5%"></div>
+                            </div>
+                        </div>
+                        <a href="project/Water-Pump-Project for-Nyala.html">
+                            <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium" >
+                                Support This Cause
+                            </button>
+                        </a>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-white hover:bg-gray-100 text-green-600 border-2 border-green-600 px-6 py-3 rounded-md text-lg font-semibold">
+                    View All Causes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Latest Articles</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Read the latest updates on Sudan.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="image/Chemical-Weapons.webp" alt="Volunteer day" class="w-full h-48 object-cover">
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Sudan Chemical Safety</h3>
+                        <p class="text-gray-600 mb-4">Chemical Weapons Threat in Sudan - This guide provides life-saving information.</p>
+                        <div class="flex justify-between items-center">
+
+                            <a href="articles/Sudan-Chemical-Safety.html">
+                                <button class="text-green-600 hover:text-green-800 font-medium">
+                                   Learn More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="image/water-fetching.webp" alt="Charity run" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Sudan's Paradox</h3>
+                        <p class="text-gray-600 mb-4">Sudan: A Land Rich in Gold, Yet Thirsting for Water</p>
+                        <div class="flex justify-between items-center">
+                            <a href="articles/Sudan-Paradox.html">
+                                <button class="text-green-600 hover:text-green-800 font-medium">
+                                    Learn More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <!-- Event 3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="image/Earthquake.jpeg" alt="Volunteer day" class="w-full h-48 object-cover">
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Earthquake Sudan</h3>
+                        <p class="text-gray-600 mb-4">Building Earthquake Resilience in Sudan</p>
+                        <div class="flex justify-between items-center">
+
+                            <a href="articles/Sudan-Resilience.html">
+                                <button class="text-green-600 hover:text-green-800 font-medium">
+                                    Learn More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg font-semibold">
+                    View All Events
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Become a Volunteer</h2>
+                    <p class="text-gray-600 mb-8">
+                        Our volunteers are the heart of our organization. By donating your time and skills, you can make a direct impact in people's lives while gaining valuable experience and connections.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-3">
+                                <i class="fas fa-users text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Join Our Community</h3>
+                                <p class="text-gray-600">Connect with like-minded individuals passionate about making a difference.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-3">
+                                <i class="fas fa-hand-holding-heart text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Flexible Opportunities</h3>
+                                <p class="text-gray-600">Choose from various roles that match your skills and availability.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-3">
+                                <i class="fas fa-award text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Gain Experience</h3>
+                                <p class="text-gray-600">Develop new skills and enhance your resume while helping others.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-xl p-8 volunteer-form">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Volunteer Application</h3>
+                    <form id="volunteerForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="firstName" class="block text-gray-700 font-medium mb-2">First Name</label>
+                                <input type="text" id="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-gray-700 font-medium mb-2">Last Name</label>
+                                <input type="text" id="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="interests" class="block text-gray-700 font-medium mb-2">Areas of Interest</label>
+                            <select id="interests" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" multiple>
+                                <option>Event Planning</option>
+                                <option>Fundraising</option>
+                                <option>Teaching/Tutoring</option>
+                                <option>Medical Services</option>
+                                <option>Construction/Renovation</option>
+                                <option>Administrative Support</option>
+                                <option>Marketing/PR</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="availability" class="block text-gray-700 font-medium mb-2">Availability</label>
+                            <select id="availability" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option>Weekdays</option>
+                                <option>Weekends</option>
+                                <option>Evenings</option>
+                                <option>Flexible</option>
+                                <option>One-time Events</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Why do you want to volunteer with us?</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold text-lg">
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newsletter -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-green-50 rounded-xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Stay Connected</h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter to receive updates on our work, upcoming events, and ways you can help.</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-semibold">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-sm text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Get In Touch</h2>
+                    <p class="text-gray-600 mb-8">
+                        Have questions about our work or how you can get involved? We'd love to hear from you. Reach out through any of the channels below.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-3">
+                                <i class="fas fa-map-marker-alt text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Our Office</h3>
+                                <p class="text-gray-600">South of Al-Mustafa School, Al-Wadi District<br>Nyala, South Darfur, Sudan</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-3">
+                                <i class="fas fa-phone-alt text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Phone</h3>
+                                <p class="text-gray-600">+249 123 456 789<br>Mon-Fri, 9am-5pm EST</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 bg-green-100 rounded-full p-3">
+                                <i class="fas fa-envelope text-green-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Email</h3>
+                                <p class="text-gray-600">Greenhands550@gmail.com<br>We typically reply within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-green-100 hover:bg-green-200 text-green-600 p-3 rounded-full">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-green-100 hover:bg-green-200 text-green-600 p-3 rounded-full">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-green-100 hover:bg-green-200 text-green-600 p-3 rounded-full">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-green-100 hover:bg-green-200 text-green-600 p-3 rounded-full">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-green-100 hover:bg-green-200 text-green-600 p-3 rounded-full">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+                    <form>
+                        <div class="mb-6">
+                            <label for="contactName" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" id="contactName" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="contactEmail" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="contactEmail" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="contactSubject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="contactSubject" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="contactMessage" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="contactMessage" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold text-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#causes" class="text-gray-400 hover:text-white">Our Causes</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white">Articles</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to get updates about our work and how you can help.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-green-500 w-full">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2025 Green Hands. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Financial Reports</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+
+        closeModal.addEventListener('click', function() {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Volunteer form submission
+        const volunteerForm = document.getElementById('volunteerForm');
+        if (volunteerForm) {
+            volunteerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your volunteer application! We will review your information and get back to you soon.');
+                this.reset();
+            });
+        }
+
+        // Contact form submission
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will respond to your inquiry as soon as possible.');
+                this.reset();
+            });
+        }
+
+        // Newsletter subscription
+        const newsletterForms = document.querySelectorAll('form:has(input[placeholder="Your email address"]), form:has(input[placeholder="Your email"])');
+        newsletterForms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Animate donation progress bars when they come into view
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.donation-progress');
+                    const width = progressBar.style.width;
+                    progressBar.style.width = '0%';
+                    setTimeout(() => {
+                        progressBar.style.width = width;
+                    }, 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.cause-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+    </script>
+    <script>
+        
+    </script>
+</body>
+</html>

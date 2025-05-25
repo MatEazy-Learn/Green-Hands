@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Weapons Protection Guide for Sudanese Civilians</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <style>
+        .section-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .emergency-banner {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { background-color: #fef3c7; }
+            50% { background-color: #fde68a; }
+            100% { background-color: #fef3c7; }
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #02d830;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Emergency Alert Banner -->
+    <div class="emergency-banner py-3 px-4 text-center font-bold text-red-800">
+        <i class="fas fa-exclamation-triangle mr-2"></i>
+        EMERGENCY ALERT: Chemical Weapons Threat in Sudan - This guide provides life-saving information
+    </div>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="../index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="../about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="../articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="../index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="../about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="../articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+    <!-- Header -->
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-800 to-green-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Comprehensive Guide for Sudanese Civilians</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-8">Prevention and Response to Chemical Weapons and Toxic Gases</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-8">
+                Actionable advice from international guidelines to help civilians mitigate exposure, respond effectively, 
+                and protect their communities during the ongoing conflict.
+            </p>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="bg-white py-8 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#preparedness" class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center">
+                    <i class="fas fa-list-check mr-2"></i> Preparedness
+                </a>
+                <a href="#during-attack" class="bg-red-100 text-red-800 px-4 py-2 rounded-full flex items-center">
+                    <i class="fas fa-bell mr-2"></i> During Attack
+                </a>
+                <a href="#decontamination" class="bg-green-100 text-green-800 px-4 py-2 rounded-full flex items-center">
+                    <i class="fas fa-shower mr-2"></i> Decontamination
+                </a>
+                <a href="#medical" class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full flex items-center">
+                    <i class="fas fa-hospital mr-2"></i> Medical Response
+                </a>
+                <a href="#resources" class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full flex items-center">
+                    <i class="fas fa-phone-alt mr-2"></i> Emergency Contacts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Introduction -->
+        <section class="mb-16 bg-white p-8 rounded-lg shadow-md section-card">
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-2/3">
+                    <p class="text-lg text-gray-700 mb-6">
+                        The ongoing conflict in Sudan has raised grave concerns about the use of chemical weapons, 
+                        including mustard gas, which poses severe health and environmental risks. This report synthesizes 
+                        actionable advice from international guidelines and scientific research to help civilians mitigate 
+                        exposure, respond effectively, and protect their communities.
+                    </p>
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+                        <p class="text-red-700 font-medium">
+                            <i class="fas fa-exclamation-circle mr-2"></i>
+                            Mustard gas exposure can cause delayed symptoms (2-24 hours after exposure) including 
+                            skin blistering, eye damage, and respiratory distress.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-1/3">
+                    <img src="../image/Chemical.avif" 
+                         alt="Emergency preparedness" 
+                         class="rounded-lg shadow-md w-full h-auto">
+                </div>
+            </div>
+        </section>
+
+        <!-- Preparedness Section -->
+        <section id="preparedness" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-blue-800 border-b-2 border-blue-200 pb-2">
+                <i class="fas fa-list-check mr-2"></i>1. Preparedness: Before Exposure
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Education Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-800">Education and Awareness</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Learn to recognize signs of chemical attacks: unusual odors (garlic, mustard), sudden eye/skin irritation, or unexplained respiratory distress</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Participate in community training sessions to identify safe shelters and evacuation routes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Memorize the smell of mustard gas (similar to garlic, onions, or horseradish)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Emergency Kit Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-briefcase-medical text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-red-800">Emergency Kits</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Prepare a kit containing waterproof gloves, plastic sheeting, duct tape, soap, clean water, and sealed food supplies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Include a battery-powered radio to receive updates from authorities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Add plastic goggles and activated charcoal (if available) for emergency protection</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Protective Measures Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-green-800">Protective Measures</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-2 text-gray-800">Clothing Protection</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Use thick plastic clothing or rubber materials if available</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Ordinary fabrics offer limited protection against mustard gas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Multiple layers can provide some additional protection</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2 text-gray-800">Water & Food Safety</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Store clean water in sealed containers to avoid contamination</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Keep food in airtight containers or plastic bags</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Identify alternative water sources in advance</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- During Attack Section -->
+        <section id="during-attack" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-red-700 border-b-2 border-red-200 pb-2">
+                <i class="fas fa-bell mr-2"></i>2. During a Chemical Attack: Immediate Actions
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Sheltering Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-home text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-800">Sheltering In Place</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-2 text-xs"></i>
+                            <span>Move indoors immediately. Seal windows, doors, and vents with plastic sheets, duct tape, or wet towels</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-2 text-xs"></i>
+                            <span>Avoid basements or low-lying areas, as mustard gas is heavier than air</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-2 text-xs"></i>
+                            <span>Turn off ventilation systems to prevent gas circulation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Outdoors Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-tree text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-green-800">If Outdoors</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-500 mt-1 mr-2 text-xs"></i>
+                            <span>Move upwind and seek elevated terrain immediately</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-500 mt-1 mr-2 text-xs"></i>
+                            <span>Cover your nose and mouth with a cloth (wet if possible) to reduce inhalation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-500 mt-1 mr-2 text-xs"></i>
+                            <span>Do not run; slow breathing to minimize toxin intake</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Vulnerable Groups Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-heart text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-purple-800">Protecting Vulnerable Groups</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-purple-500 mt-1 mr-2 text-xs"></i>
+                            <span>Prioritize children, the elderly, and pregnant individuals for sheltering</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-purple-500 mt-1 mr-2 text-xs"></i>
+                            <span>Infants are especially vulnerable - cover carriers with plastic sheeting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-purple-500 mt-1 mr-2 text-xs"></i>
+                            <span>Those with respiratory conditions should be given priority for medical attention</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Emergency Visual Guide -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-md section-card">
+                <h3 class="text-xl font-semibold mb-4 text-center text-red-700">Chemical Attack Response Visual Guide</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-home text-blue-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold mb-1">Shelter In Place</h4>
+                        <p class="text-sm text-gray-600">Seal room with plastic & tape</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-wind text-green-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold mb-1">Move Upwind</h4>
+                        <p class="text-sm text-gray-600">If outdoors, go to higher ground</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-mask-face text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold mb-1">Cover Face</h4>
+                        <p class="text-sm text-gray-600">Use wet cloth over nose/mouth</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decontamination Section -->
+        <section id="decontamination" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-green-700 border-b-2 border-green-200 pb-2">
+                <i class="fas fa-shower mr-2"></i>3. Decontamination Procedures
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Removing Clothing Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-tshirt text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-red-800">Removing Contaminated Clothing</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Cut off clothing (do not pull over the head) to avoid contact with eyes/nose</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Place contaminated items in sealed plastic bags if possible</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Use gloves to handle contaminated materials</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Remove contact lenses immediately if present</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Skin & Eye Washing Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-hand-holding-water text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-800">Skin and Eye Washing</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Rinse exposed skin with soap and water for at least 90 seconds</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                            <span>For eyes, flush with clean water for 10–15 minutes (tilt head so water runs from inner to outer eye)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Avoid using bleach or harsh chemicals unless directed (0.5% diluted bleach may be used for skin decontamination in emergencies)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1 mr-2"></i>
+                            <span>Do not rub affected areas as this spreads contamination</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Environmental Cleanup Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-trash text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-green-800">Environmental Cleanup</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-2 text-gray-800">Contamination Areas</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-ban text-red-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Avoid contact with contaminated soil or water</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-ban text-red-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Mustard gas can persist for weeks in cold climates</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-ban text-red-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Mark contaminated areas clearly to warn others</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2 text-gray-800">Reporting & Professional Help</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-phone-alt text-blue-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Report contaminated areas to local authorities immediately</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-phone-alt text-blue-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Wait for professional decontamination teams</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-phone-alt text-blue-500 mt-1 mr-2 text-xs"></i>
+                                    <span>Do not attempt large-scale decontamination without proper equipment</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medical Response Section -->
+        <section id="medical" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-purple-700 border-b-2 border-purple-200 pb-2">
+                <i class="fas fa-hospital mr-2"></i>4. Medical Response and Long-Term Care
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Immediate Attention Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-ambulance text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-red-800">Immediate Medical Attention</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-plus-circle text-red-500 mt-1 mr-2"></i>
+                            <span>Seek help even if symptoms are delayed (e.g., blistering or respiratory issues may appear hours after exposure)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-plus-circle text-red-500 mt-1 mr-2"></i>
+                            <span>Do not induce vomiting if mustard gas is ingested; administer milk if available</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-plus-circle text-red-500 mt-1 mr-2"></i>
+                            <span>Remove contact lenses immediately if present</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-plus-circle text-red-500 mt-1 mr-2"></i>
+                            <span>Inform medical personnel about the exposure details (duration, type of chemical if known)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Long-Term Care Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-heartbeat text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-blue-800">Long-Term Health Monitoring</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-blue-500 mt-1 mr-2"></i>
+                            <span>Monitor for chronic conditions: respiratory diseases, skin cancer, or vision loss</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-blue-500 mt-1 mr-2"></i>
+                            <span>Advocate for community health programs to track late-onset symptoms</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-blue-500 mt-1 mr-2"></i>
+                            <span>Regular eye exams for those with eye exposure</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-blue-500 mt-1 mr-2"></i>
+                            <span>Psychological support for trauma and anxiety related to the attack</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Symptoms Timeline -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-md section-card">
+                <h3 class="text-xl font-semibold mb-4 text-center text-purple-700">Mustard Gas Symptoms Timeline</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white">
+                        <thead class="bg-purple-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Time After Exposure</th>
+                                <th class="py-3 px-4 text-left">Symptoms</th>
+                                <th class="py-3 px-4 text-left">Recommended Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="py-3 px-4">0-2 hours</td>
+                                <td class="py-3 px-4">Mild skin/eye irritation, possible nausea</td>
+                                <td class="py-3 px-4">Begin decontamination immediately</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4">2-8 hours</td>
+                                <td class="py-3 px-4">Reddening of skin, eye pain, possible blisters</td>
+                                <td class="py-3 px-4">Seek medical attention</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4">8-24 hours</td>
+                                <td class="py-3 px-4">Severe skin blistering, eye swelling, respiratory distress</td>
+                                <td class="py-3 px-4">Hospitalization likely needed</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4">Days to Years</td>
+                                <td class="py-3 px-4">Possible long-term respiratory issues, skin cancer risk, eye damage</td>
+                                <td class="py-3 px-4">Regular medical monitoring</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community & Resources Section -->
+        <section id="resources" class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-yellow-700 border-b-2 border-yellow-200 pb-2">
+                <i class="fas fa-hands-helping mr-2"></i>5. Community and Advocacy Measures
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Environmental Safety Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-leaf text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-green-800">Environmental Safety</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-ban text-red-500 mt-1 mr-2"></i>
+                            <span>Avoid returning to contaminated zones until cleared by experts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-ban text-red-500 mt-1 mr-2"></i>
+                            <span>Mustard gas can linger in soil for years in cold climates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-gavel text-yellow-500 mt-1 mr-2"></i>
+                            <span>Demand accountability for chemical weapon use through local and international channels</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-users text-blue-500 mt-1 mr-2"></i>
+                            <span>Organize community monitoring of potentially affected areas</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Psychological Support Card -->
+                <div class="bg-white p-6 rounded-lg shadow-md section-card">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-brain text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-purple-800">Psychological Support</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-heart text-red-500 mt-1 mr-2"></i>
+                            <span>Address trauma and anxiety through community-led counseling initiatives</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-heart text-red-500 mt-1 mr-2"></i>
+                            <span>Chemical attacks often cause lasting psychological harm</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-child text-blue-500 mt-1 mr-2"></i>
+                            <span>Special attention needed for children who may develop PTSD</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-hands-helping text-green-500 mt-1 mr-2"></i>
+                            <span>Create support groups for survivors and affected families</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Key Resources -->
+            <div class="mt-8 bg-white p-8 rounded-lg shadow-md section-card">
+                <h3 class="text-2xl font-bold mb-6 text-center text-blue-800">Key Resources for Sudanese Civilians</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Emergency Contacts -->
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4 text-red-700 border-b border-red-200 pb-2">
+                            <i class="fas fa-phone-alt mr-2"></i>Emergency Contacts
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-hospital text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h5 class="font-medium">Local health clinics</h5>
+                                    <p class="text-sm text-gray-600">Know the locations of nearest medical facilities</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-plus-circle text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h5 class="font-medium">Sudanese Red Crescent</h5>
+                                    <p class="text-sm text-gray-600">Emergency: +249 123 456 789</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-globe text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h5 class="font-medium">International Aid Organizations</h5>
+                                    <p class="text-sm text-gray-600">WHO, UNICEF, Médecins Sans Frontières</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- International Support -->
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4 text-blue-700 border-b border-blue-200 pb-2">
+                            <i class="fas fa-globe-africa mr-2"></i>International Support
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-flag text-blue-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h5 class="font-medium">Organization for the Prohibition of Chemical Weapons (OPCW)</h5>
+                                    <p class="text-sm text-gray-600">Report violations: +31 70 416 3300</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-balance-scale text-blue-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h5 class="font-medium">International Criminal Court</h5>
+                                    <p class="text-sm text-gray-600">Report war crimes: +31 70 515 8515</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-newspaper text-blue-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h5 class="font-medium">Media & Documentation</h5>
+                                    <p class="text-sm text-gray-600">Document evidence safely for future accountability</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="bg-blue-800 text-white p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4 text-center">Conclusion</h2>
+            <p class="text-lg mb-6 text-center max-w-3xl mx-auto">
+                The threat of chemical weapons demands vigilance, preparedness, and collective action. 
+                By adhering to these guidelines, Sudanese civilians can reduce risks, protect their families, 
+                and advocate for a safer environment. Share this information widely and stay informed through trusted sources.
+            </p>
+            <div class="bg-blue-700 p-6 rounded-lg max-w-2xl mx-auto text-center">
+                <p class="text-xl italic">
+                    "In unity, there is strength. Let us safeguard our communities with knowledge and resilience."
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400">
+                         Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="../articles.html" class="text-gray-400 hover:text-white transition">Articles</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>Greenhands550@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+249 123 456 789</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-500 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Green Hands. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+     <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Simple functionality for the page
+        document.addEventListener('DOMContentLoaded', function() {
+
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+                 // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+    </script>
+</body>
+</html>
