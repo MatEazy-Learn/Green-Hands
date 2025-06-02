@@ -9,7 +9,6 @@
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body class="bg-gray-100">
-   <!-- Navigation -->
     <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -20,11 +19,12 @@
             <div class="hidden md:flex space-x-6">
                 <a href="index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
                 <a href="about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="Freshwater-Locations-South-Darfur.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">find Freshwater</a>
                 <a href="#" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
                 
             </div>
             <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
-                Donate
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
             </button>
             <button class="md:hidden text-2xl" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -34,6 +34,7 @@
         <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
             <a href="index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
             <a href="about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="Freshwater-Locations-South-Darfur.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">find Freshwater</a>
             <a href="#" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
         </div>
     </nav>
@@ -52,6 +53,32 @@
 
     <!-- Courses Grid -->
     <div id="coursesGrid" class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+
+        <!-- Water Safety Guide Revolution Card -->
+        <div class="course-card bg-white rounded-xl shadow-md overflow-hidden  hover:shadow-lg transition cursor-pointer" data-title="Water Safety Guide">
+            <a href="articles/Water-Safety-Guide.html">
+              <div class="h-40 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+                <img src="image/Safe-Drinking-Water.webp" alt="Water Pump Project">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-800">Water Safety Guide</h3>
+                <p class="text-gray-600 mb-4">Learn to distinguish between clean water and water contaminated with chlorine or cholera bacteria through simple observation and testing.</p>
+              </div>
+            </a>
+        </div>
+
+        <!-- Autonomous Agriculture Revolution Card -->
+        <div class="course-card bg-white rounded-xl shadow-md overflow-hidden  hover:shadow-lg transition cursor-pointer" data-title="Autonomous Agriculture Revolution">
+            <a href="articles/Autonomous-Agriculture-Revolution.html">
+              <div class="h-40 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+                <img src="image/auto-robot.jpg" alt="Water Pump Project">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-800">Autonomous Agriculture Revolution</h3>
+                <p class="text-gray-600 mb-4">Transforming farming with self-driving tractors and intelligent irrigation systems powered by renewable energy and rainwater harvesting.</p>
+              </div>
+            </a>
+        </div>
       <!-- Water Pump Project for Nyala Card -->
       <div class="course-card bg-white rounded-xl shadow-md overflow-hidden  hover:shadow-lg transition cursor-pointer" data-title="Water Pump Project for Nyala">
         <a href="project/Water-Pump-Project for-Nyala.html">
