@@ -71,12 +71,13 @@
             <div class="hidden md:flex space-x-6">
                 <a href="index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
                 <a href="about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="#Services" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Services</a>
                 <a href="#causes" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Our Causes</a>
                 <a href="articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
                 
             </div>
             <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
-                 Donate
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
             </button>
             <button class="md:hidden text-2xl" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -86,6 +87,7 @@
         <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
             <a href="index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
             <a href="about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="#Services" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Services</a>
             <a href="#causes" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Our Causes</a>
             <a href="articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
         </div>
@@ -157,6 +159,38 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section id="Services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We are trying to improve the quality of life to the people around us.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cause 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden cause-card transition duration-300">
+                    <img src="image/Clean-Water.jpeg.webp" alt="Clean water project" class="w-full h-48 object-cover">
+                    <a href="Freshwater-Locations-South-Darfur.html">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 rounded-full p-2 mr-3">
+                                <i class="fas fa-tint text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Find Clean Water in South Darfur</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Our artificial intelligence helps communities find and access clean water sources in water-scarce regions.</p>
+                        <a href="Freshwater-Locations-South-Darfur.html">
+                            <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium" >
+                                Support This Cause
+                            </button>
+                        </a>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Causes Section -->
     <section id="causes" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -195,6 +229,26 @@
                     </div>
                     </a>
                 </div>
+                <!-- Cause 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden cause-card transition duration-300">
+                    <img src="image/We-Rise.jpeg" alt="Clean water project" class="w-full h-48 object-cover">
+                    <a href="articles/We-Rise.html">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 rounded-full p-2 mr-3">
+                                <i class="fas fa-tint text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">We Rise—Rooted in Resilience</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">A Sudanese-led movement to heal our land from war toxins, floods, and drought through traditional wisdom and community action.</p>
+                        <a href="articles/We-Rise.html">
+                            <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium" >
+                                Support This Cause
+                            </button>
+                        </a>
+                    </div>
+                    </a>
+                </div>
             </div>
             
             <div class="text-center mt-12">
@@ -217,6 +271,25 @@
                 <!-- Event 3 -->
                 <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
                     <div class="relative">
+                        <img src="image/auto-robot.jpg" alt="Volunteer day" class="w-full h-48 object-cover">
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Autonomous Agriculture Revolution</h3>
+                        <p class="text-gray-600 mb-4">Transforming farming with self-driving tractors and intelligent irrigation systems powered by renewable energy and rainwater harvesting.</p>
+                        <div class="flex justify-between items-center">
+
+                            <a href="articles/Autonomous-Agriculture-Revolution.html">
+                                <button class="text-green-600 hover:text-green-800 font-medium">
+                                   Learn More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
                         <img src="image/Chemical-Weapons.webp" alt="Volunteer day" class="w-full h-48 object-cover">
 
                     </div>
@@ -228,6 +301,23 @@
                             <a href="articles/Sudan-Chemical-Safety.html">
                                 <button class="text-green-600 hover:text-green-800 font-medium">
                                    Learn More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="image/Safe-Drinking-Water.webp" alt="Charity run" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Safe Drinking Water</h3>
+                        <p class="text-gray-600 mb-4">Learn to distinguish between clean water and water contaminated with chlorine or cholera bacteria through simple observation and testing</p>
+                        <div class="flex justify-between items-center">
+                            <a href="articles/Water-Safety-Guide.html">
+                                <button class="text-green-600 hover:text-green-800 font-medium">
+                                    Learn More
                                 </button>
                             </a>
                         </div>
@@ -275,9 +365,11 @@
             </div>
             
             <div class="text-center mt-12">
-                <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg font-semibold">
-                    View All Events
-                </button>
+                <a href="articles.html">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md text-lg font-semibold">
+                        View All Articles
+                    </button>
+                </a>
             </div>
         </div>
     </section>
