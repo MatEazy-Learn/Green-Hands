@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshwater Locations in South Darfur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        #map {
+            height: 500px;
+            z-index: 10;
+        }
+        .water-well {
+            color: #3b82f6;
+        }
+        .water-river {
+            color: #1d4ed8;
+        }
+        .water-pond {
+            color: #10b981;
+        }
+        .water-spring {
+            color: #06b6d4;
+        }
+        .leaflet-popup-content {
+            text-align: center;
+        }
+        .result-item:hover {
+            background-color: #f0fdf4;
+            transform: translateY(-2px);
+        }
+        .rtl-support {
+            direction: rtl;
+            text-align: right;
+        }
+        .ltr-support {
+            direction: ltr;
+            text-align: left;
+        }
+        @media (max-width: 640px) {
+            #map {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="Freshwater-Locations-South-Darfur.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">find Freshwater</a>
+                <a href="articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="Freshwater-Locations-South-Darfur.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">find Freshwater</a>
+            <a href="articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+    <!-- Header -->
+    <header class="bg-green-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-droplet text-3xl mr-3 text-blue-200"></i>
+                    <div>
+                        <h1 class="text-2xl font-bold rtl-support">مواقع المياه العذبة في جنوب دارفور</h1>
+                        <h1 class="text-2xl font-bold ltr-support">Freshwater Locations in South Darfur</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="hidden md:block text-green-100">AI-Powered Search</span>
+                    <i class="fas fa-robot text-yellow-300"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Search Section -->
+        <section class="mb-10 bg-white rounded-xl shadow-md p-6">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                    <label for="searchInput" class="block text-sm font-medium text-gray-700 mb-1 ltr-support">
+                        Search by location name (English or Arabic)
+                    </label>
+                    <div class="relative">
+                        <input type="text" id="searchInput" 
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                            placeholder="ابحث عن منطقة / Search for an area...">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-48">
+                    <label for="waterTypeFilter" class="block text-sm font-medium text-gray-700 mb-1 ltr-support">
+                        Filter by type
+                    </label>
+                    <select id="waterTypeFilter" 
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white">
+                        <option value="all">All Types</option>
+                        <option value="well">Wells</option>
+                        <option value="river">Rivers</option>
+                        <option value="pond">Ponds</option>
+                        <option value="spring">Springs</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4 flex items-center text-sm text-gray-500">
+                <i class="fas fa-info-circle mr-2"></i>
+                <span class="ltr-support">AI will find matches even with partial or misspelled names</span>
+                <span class="rtl-support hidden md:inline">:الذكاء الاصطناعي سيجد النتائج حتى مع الأسماء الناقصة أو الخاطئة</span>
+            </div>
+        </section>
+
+        <!-- Results and Map Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Results List -->
+            <div class="lg:col-span-1 bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-4 bg-green-700 text-white">
+                    <h2 class="text-lg font-semibold flex items-center">
+                        <i class="fas fa-list mr-2"></i>
+                        <span class="ltr-support">Search Results</span>
+                        <span class="rtl-support">نتائج البحث</span>
+                        <span id="resultsCount" class="ml-2 bg-green-800 text-xs font-medium px-2 py-1 rounded-full">0</span>
+                    </h2>
+                </div>
+                <div id="results" class="divide-y divide-gray-200 max-h-[600px] overflow-y-auto">
+                    <div class="p-4 text-center text-gray-500">
+                        <i class="fas fa-search-location text-3xl mb-2 text-gray-300"></i>
+                        <p class="ltr-support">Search for freshwater locations</p>
+                        <p class="rtl-support">ابحث عن مواقع المياه العذبة</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-4 bg-green-700 text-white">
+                        <h2 class="text-lg font-semibold flex items-center">
+                            <i class="fas fa-map-marked-alt mr-2"></i>
+                            <span class="ltr-support">Interactive Map</span>
+                            <span class="rtl-support">الخريطة التفاعلية</span>
+                        </h2>
+                    </div>
+                    <div id="map" class="w-full"></div>
+                    <div class="p-4 bg-gray-50 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-circle water-well mr-1"></i>
+                                <span class="ltr-support">Well</span>
+                                <span class="rtl-support">بئر</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-circle water-river mr-1"></i>
+                                <span class="ltr-support">River</span>
+                                <span class="rtl-support">نهر</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-circle water-pond mr-1"></i>
+                                <span class="ltr-support">Pond</span>
+                                <span class="rtl-support">بركة</span>
+                            </div>
+                            <div class="flex items-center text-sm">
+                                <i class="fas fa-circle water-spring mr-1"></i>
+                                <span class="ltr-support">Spring</span>
+                                <span class="rtl-support">ينبوع</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Information -->
+        <section class="mt-12 bg-white rounded-xl shadow-md p-6">
+            <h2 class="text-xl font-semibold text-green-800 mb-4 flex items-center">
+                <i class="fas fa-database mr-2"></i>
+                <span class="ltr-support">About Our Water Source Data</span>
+                <span class="rtl-support">حول بيانات مصادر المياه</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <p class="text-gray-600 mb-4 ltr-support">
+                        Our database contains verified freshwater locations across South Darfur, collected through community reporting and field surveys.
+                    </p>
+                    <p class="text-gray-600 rtl-support">
+                        تحتوي قاعدة البيانات الخاصة بنا على مواقع مياه عذبة موثقة عبر جنوب دارفور، تم جمعها من خلال تقارير المجتمع والمسوحات الميدانية.
+                    </p>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                    <h3 class="font-medium text-blue-800 mb-2 flex items-center">
+                        <i class="fas fa-lightbulb mr-2"></i>
+                        <span class="ltr-support">How AI Helps</span>
+                        <span class="rtl-support">كيف يساعد الذكاء الاصطناعي</span>
+                    </h3>
+                    <p class="text-sm text-blue-700 ltr-support">
+                        Our fuzzy search algorithm understands misspellings and partial names, making it easier to find water sources.
+                    </p>
+                    <p class="text-sm text-blue-700 rtl-support">
+                        خوارزمية البحث الضبابي تفهم الأخطاء الإملائية والأسماء الجزئية، مما يجعل العثور على مصادر المياه أسهل.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="articles.html" class="text-gray-400 hover:text-white">Articles</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to get updates about our work and how you can help.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-green-500 w-full">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2025 Green Hands. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Financial Reports</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+            <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="hidden fixed bottom-8 right-8 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
+    <script>
+        // Water source data for South Darfur
+        const waterSources = [
+            {
+                "id": 1,
+                "name_ar": "بئر نيالا المركزي",
+                "name_en": "Nyala Central Well",
+                "type": "well",
+                "location": {
+                    "lat": 12.06,
+                    "lng": 24.88
+                },
+                "description_ar": "بئر عميق في وسط مدينة نيالا، يوفر مياه عذبة لآلاف السكان.",
+                "description_en": "Deep well in central Nyala, providing fresh water for thousands of residents.",
+                "depth": "45 meters",
+                "status": "active",
+                "last_checked": "2023-06-15"
+            },
+            {
+                "id": 2,
+                "name_ar": "نهر كاس الموسمي",
+                "name_en": "Kas Seasonal River",
+                "type": "river",
+                "location": {
+                    "lat": 11.95,
+                    "lng": 24.5
+                },
+                "description_ar": "نهر موسمي يمر بمنطقة كاس، مصدر رئيسي للمياه في مواسم الأمطار.",
+                "description_en": "Seasonal river passing through Kas area, main water source during rainy seasons.",
+                "flow_period": "July-October",
+                "status": "seasonal",
+                "last_checked": "2023-05-20"
+            },
+            {
+                "id": 3,
+                "name_ar": "بركة الضعين الكبرى",
+                "name_en": "El Daein Great Pond",
+                "type": "pond",
+                "location": {
+                    "lat": 11.46,
+                    "lng": 26.13
+                },
+                "description_ar": "بركة طبيعية كبيرة في الضعين، تستخدم للشرب والري.",
+                "description_en": "Large natural pond in El Daein, used for drinking and irrigation.",
+                "size": "2.5 hectares",
+                "status": "active",
+                "last_checked": "2023-07-10"
+            },
+            {
+                "id": 4,
+                "name_ar": "بئر عد الفرسان الشمالي",
+                "name_en": "Edd al Fursan Northern Well",
+                "type": "well",
+                "location": {
+                    "lat": 11.98,
+                    "lng": 25.15
+                },
+                "description_ar": "بئر قديم تم تجديده حديثاً، يخدم القرى الشمالية في عد الفرسان.",
+                "description_en": "Ancient well recently renovated, serving northern villages of Edd al Fursan.",
+                "depth": "30 meters",
+                "status": "active",
+                "last_checked": "2023-06-28"
+            },
+            {
+                "id": 5,
+                "name_ar": "ينبوع جبل مرة",
+                "name_en": "Jebel Marra Spring",
+                "type": "spring",
+                "location": {
+                    "lat": 12.75,
+                    "lng": 24.25
+                },
+                "description_ar": "ينبوع مياه جبلية عذبة في سفح جبل مرة.",
+                "description_en": "Fresh mountain spring at the foothills of Jebel Marra.",
+                "flow": "continuous",
+                "status": "active",
+                "last_checked": "2023-07-05"
+            },
+            {
+                "id": 6,
+                "name_ar": "بئر شعبية تلس",
+                "name_en": "Tulus Community Well",
+                "type": "well",
+                "location": {
+                    "lat": 11.85,
+                    "lng": 25.35
+                },
+                "description_ar": "بئر مجتمعي حفرته منظمة محلية لخدمة قرى تلس.",
+                "description_en": "Community well dug by local organization to serve Tulus villages.",
+                "depth": "28 meters",
+                "status": "active",
+                "last_checked": "2023-06-10"
+            },
+            {
+                "id": 7,
+                "name_ar": "بركة أم كدادة",
+                "name_en": "Um Kadada Pond",
+                "type": "pond",
+                "location": {
+                    "lat": 11.65,
+                    "lng": 25.75
+                },
+                "description_ar": "بركة اصطناعية تخزن مياه الأمطار لاستخدامها في مواسم الجفاف.",
+                "description_en": "Artificial pond storing rainwater for use during dry seasons.",
+                "size": "1.8 hectares",
+                "status": "active",
+                "last_checked": "2023-06-22"
+            },
+            {
+                "id": 8,
+                "name_ar": "نهر وادي صالح",
+                "name_en": "Wadi Saleh River",
+                "type": "river",
+                "location": {
+                    "lat": 11.35,
+                    "lng": 24.85
+                },
+                "description_ar": "وادي موسمي يمر بعدة قرى في منطقة صالح.",
+                "description_en": "Seasonal wadi passing through several villages in Saleh area.",
+                "flow_period": "June-September",
+                "status": "seasonal",
+                "last_checked": "2023-05-15"
+            }
+        ];
+
+        // Initialize map
+        let map;
+        let markers = [];
+        
+        function initMap() {
+            // Center on South Darfur
+            map = L.map('map').setView([11.8, 24.9], 8);
+            
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add scale control
+            L.control.scale().addTo(map);
+        }
+
+        // Get appropriate icon for water source type
+        function getWaterIcon(type) {
+            let iconColor;
+            switch(type) {
+                case 'well':
+                    iconColor = '#3b82f6';
+                    break;
+                case 'river':
+                    iconColor = '#1d4ed8';
+                    break;
+                case 'pond':
+                    iconColor = '#10b981';
+                    break;
+                case 'spring':
+                    iconColor = '#06b6d4';
+                    break;
+                default:
+                    iconColor = '#64748b';
+            }
+            
+            return L.divIcon({
+                className: 'water-icon',
+                html: `<i class="fas fa-circle" style="color: ${iconColor}; font-size: 20px;"></i>`,
+                iconSize: [20, 20],
+                iconAnchor: [10, 10],
+                popupAnchor: [0, -10]
+            });
+        }
+
+        // Display results in list and on map
+        function displayResults(results, typeFilter = 'all') {
+            const resultsContainer = document.getElementById('results');
+            const resultsCount = document.getElementById('resultsCount');
+            
+            // Clear previous results
+            resultsContainer.innerHTML = '';
+            clearMarkers();
+            
+            // Filter by type if needed
+            const filteredResults = typeFilter === 'all' 
+                ? results 
+                : results.filter(r => r.item.type === typeFilter);
+            
+            // Update results count
+            resultsCount.textContent = filteredResults.length;
+            
+            if (filteredResults.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="p-6 text-center text-gray-500">
+                        <i class="fas fa-water text-3xl mb-2 text-gray-300"></i>
+                        <p class="ltr-support">No water sources found</p>
+                        <p class="rtl-support">لم يتم العثور على مصادر مياه</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Add each result to list and map
+            filteredResults.forEach(result => {
+                const source = result.item;
+                
+                // Add to results list
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item p-4 transition cursor-pointer';
+                resultItem.innerHTML = `
+                    <div class="flex items-start">
+                        <div class="mr-3 mt-1">
+                            ${source.type === 'well' ? '<i class="fas fa-water well water-well"></i>' : ''}
+                            ${source.type === 'river' ? '<i class="fas fa-water water-river"></i>' : ''}
+                            ${source.type === 'pond' ? '<i class="fas fa-water water-pond"></i>' : ''}
+                            ${source.type === 'spring' ? '<i class="fas fa-water water-spring"></i>' : ''}
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-semibold text-green-800 ltr-support">${source.name_en}</h3>
+                            <h3 class="font-semibold text-green-800 rtl-support">${source.name_ar}</h3>
+                            <p class="text-sm text-gray-600 mt-1 ltr-support">${source.description_en}</p>
+                            <p class="text-sm text-gray-600 mt-1 rtl-support">${source.description_ar}</p>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">${source.type}</span>
+                                ${source.status === 'active' ? '<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Active</span>' : ''}
+                                ${source.status === 'seasonal' ? '<span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Seasonal</span>' : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Highlight result on map when clicked
+                resultItem.addEventListener('click', () => {
+                    map.setView([source.location.lat, source.location.lng], 13);
+                });
+                
+                resultsContainer.appendChild(resultItem);
+                
+                // Add to map
+                const marker = L.marker([source.location.lat, source.location.lng], {
+                    icon: getWaterIcon(source.type)
+                }).addTo(map);
+                
+                marker.bindPopup(`
+                    <div class="text-center">
+                        <h4 class="font-bold text-green-800">${source.name_en}</h4>
+                        <h4 class="font-bold text-green-800">${source.name_ar}</h4>
+                        <div class="my-2">
+                            ${source.type === 'well' ? '<i class="fas fa-water well water-well text-xl"></i>' : ''}
+                            ${source.type === 'river' ? '<i class="fas fa-water water-river text-xl"></i>' : ''}
+                            ${source.type === 'pond' ? '<i class="fas fa-water water-pond text-xl"></i>' : ''}
+                            ${source.type === 'spring' ? '<i class="fas fa-water water-spring text-xl"></i>' : ''}
+                        </div>
+                        <p class="text-sm">${source.type.charAt(0).toUpperCase() + source.type.slice(1)}</p>
+                    </div>
+                `);
+                
+                markers.push(marker);
+            });
+            
+            // Adjust map view to show all markers if there are results
+            if (filteredResults.length > 0) {
+                const group = new L.featureGroup(markers);
+                map.fitBounds(group.getBounds().pad(0.2));
+            }
+        }
+
+        // Clear all markers from map
+        function clearMarkers() {
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+        }
+
+        // Initialize Fuse.js for fuzzy search
+        function initSearch() {
+            const options = {
+                keys: ['name_ar', 'name_en', 'description_ar', 'description_en'],
+                threshold: 0.4,
+                ignoreLocation: true,
+                includeScore: true,
+                minMatchCharLength: 2
+            };
+            
+            const fuse = new Fuse(waterSources, options);
+            
+            // Search input event
+            const searchInput = document.getElementById('searchInput');
+            const waterTypeFilter = document.getElementById('waterTypeFilter');
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.trim();
+                const typeFilter = waterTypeFilter.value;
+                
+                if (searchTerm.length < 2) {
+                    // If search term is too short, show all sources filtered by type
+                    displayResults(waterSources.map(item => ({ item })), typeFilter);
+                    return;
+                }
+                
+                const results = fuse.search(searchTerm);
+                displayResults(results, typeFilter);
+            }
+            
+            searchInput.addEventListener('input', performSearch);
+            waterTypeFilter.addEventListener('change', performSearch);
+            
+            // Initial display of all water sources
+            displayResults(waterSources.map(item => ({ item })));
+        }
+
+        // Initialize everything when page loads
+        window.onload = function() {
+            initMap();
+            initSearch();
+        };
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+                // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+
+        closeModal.addEventListener('click', function() {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+                // Newsletter subscription
+        const newsletterForms = document.querySelectorAll('form:has(input[placeholder="Your email address"]), form:has(input[placeholder="Your email"])');
+        newsletterForms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
