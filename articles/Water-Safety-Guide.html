@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Safety Guide - Clean vs Contaminated Water</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <style>
+        .water-gradient {
+            background: linear-gradient(135deg, rgba(10, 120, 200, 0.9) 0%, rgba(0, 80, 150, 0.95) 100%);
+        }
+        .safe-card {
+            border-top: 4px solid #10b981;
+        }
+        .chlorine-card {
+            border-top: 4px solid #f59e0b;
+        }
+        .cholera-card {
+            border-top: 4px solid #ef4444;
+        }
+        .feature-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .water-test-animation {
+            animation: waterDrop 3s infinite ease-in-out;
+        }
+        @keyframes waterDrop {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="../index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="../about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="../Freshwater-Locations-South-Darfur.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">find Freshwater</a>
+                <a href="../articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="../index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="../about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="../Freshwater-Locations-South-Darfur.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">find Freshwater</a>
+            <a href="../articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="water-gradient text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Identifying Safe Drinking Water</h1>
+                <p class="text-xl mb-8 leading-relaxed">Learn to distinguish between clean water and water contaminated with chlorine or cholera bacteria through simple observation and testing.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#safe" class="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold text-center hover:bg-gray-100 transition">Safe Water Signs</a>
+                    <a href="#actions" class="border-2 border-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white hover:text-blue-700 transition">Safety Actions</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <img src="../image/Safe-Drinking-Water.webp" 
+                         alt="Clean water glass" 
+                         class="rounded-lg shadow-2xl max-w-full h-auto">
+                    <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-full shadow-xl water-test-animation">
+                        <i class="fas fa-vial text-blue-600 text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safe Water Section -->
+    <section id="safe" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Characteristics of Clean, Potable Water</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Safe drinking water should meet these criteria to ensure it's free from harmful contaminants
+                </p>
+            </div>
+            
+            <div class="safe-card bg-gray-50 rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-green-100 p-8 flex flex-col justify-center">
+                        <div class="text-green-600 text-5xl mb-4 text-center">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-center text-green-800">Safe Drinking Water</h3>
+                    </div>
+                    <div class="md:w-2/3 p-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="text-green-500 mt-1 mr-3">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Appearance</h4>
+                                    <p class="text-gray-600">Clear, colorless, with no floating particles or sediment</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-green-500 mt-1 mr-3">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Smell</h4>
+                                    <p class="text-gray-600">Odorless with no chemical or organic odors</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-green-500 mt-1 mr-3">
+                                    <i class="fas fa-tongue"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Taste</h4>
+                                    <p class="text-gray-600">Neutral taste with no chemical or metallic flavors</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-green-500 mt-1 mr-3">
+                                    <i class="fas fa-faucet"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Source</h4>
+                                    <p class="text-gray-600">Treated municipal supply, sealed bottles, or properly filtered/boiled water</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-blue-50 rounded-xl p-8 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4">Safety Confirmation</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-blue-600 text-3xl mb-3">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h4 class="font-medium text-gray-800 mb-2">Test Strips</h4>
+                        <p class="text-gray-600 text-sm">
+                            Use EPA-approved test strips to check pH, chlorine, and nitrate levels. All parameters should be within safe limits.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-blue-600 text-3xl mb-3">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4 class="font-medium text-gray-800 mb-2">Water Reports</h4>
+                        <p class="text-gray-600 text-sm">
+                            Municipal water systems provide annual water quality reports showing compliance with safety standards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contaminants Section -->
+    <section id="contaminants" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Identifying Water Contaminants</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Learn to recognize the signs of chlorine overexposure and cholera contamination
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Chlorine Card -->
+                <div class="chlorine-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-amber-50 p-6">
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-exclamation-triangle text-amber-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-amber-800">Chlorine-Contaminated Water</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="text-amber-500 mt-1 mr-3">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Appearance</h4>
+                                    <p class="text-gray-600">Usually clear but may have faint yellow/green tint at high concentrations</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-amber-500 mt-1 mr-3">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Smell</h4>
+                                    <p class="text-gray-600">Strong bleach-like odor even at low levels</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-amber-500 mt-1 mr-3">
+                                    <i class="fas fa-tongue"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Taste</h4>
+                                    <p class="text-gray-600">Chemical, bitter, or "swimming pool" flavor</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-amber-500 mt-1 mr-3">
+                                    <i class="fas fa-user-injured"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Physical Effects</h4>
+                                    <p class="text-gray-600">Eye/skin irritation when bathing, nausea or throat burning if ingested</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8 bg-amber-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-amber-800 mb-2">Verification Tests</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-vial text-amber-600 mt-1 mr-2"></i>
+                                    <span>Test strips detect chlorine levels >4 mg/L (EPA limit is 4 ppm)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-lemon text-amber-600 mt-1 mr-2"></i>
+                                    <span>DIY Test: Add lemon juice; if bleach smell fades, chlorine is present</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cholera Card -->
+                <div class="cholera-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-red-50 p-6">
+                        <div class="flex items-center">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-biohazard text-red-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-red-800">Cholera-Contaminated Water</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="text-red-500 mt-1 mr-3">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Appearance</h4>
+                                    <p class="text-gray-600">Often murky or cloudy due to fecal/organic matter (but can be clear!)</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-red-500 mt-1 mr-3">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Smell</h4>
+                                    <p class="text-gray-600">Earthy, musty, or sewage-like odor (but can be odorless)</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-red-500 mt-1 mr-3">
+                                    <i class="fas fa-tongue"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Taste</h4>
+                                    <p class="text-gray-600">May taste earthy or normal (Vibrio cholerae has no taste)</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="text-red-500 mt-1 mr-3">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Key Risk Indicators</h4>
+                                    <p class="text-gray-600">Shallow wells, rivers, or areas with poor sanitation/floods</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8 bg-red-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-red-800 mb-2">Health Symptoms (if ingested)</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-start">
+                                    <i class="fas fa-poop text-red-600 mt-1 mr-2"></i>
+                                    <span>Severe watery diarrhea ("rice-water stools") within 12h–5 days</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-tint-slash text-red-600 mt-1 mr-2"></i>
+                                    <span>Rapid dehydration (sunken eyes, dry mouth, extreme thirst)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Critical Differences Summary</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Quick reference table to compare water characteristics
+                </p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-md feature-table">
+                    <thead class="bg-blue-700 text-white">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Feature</th>
+                            <th class="py-3 px-4 text-left">Clean Water</th>
+                            <th class="py-3 px-4 text-left">Chlorine-Contaminated</th>
+                            <th class="py-3 px-4 text-left">Cholera-Contaminated</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-4 px-4 font-medium text-gray-800">Smell</td>
+                            <td class="py-4 px-4 text-gray-600">None</td>
+                            <td class="py-4 px-4 text-gray-600">Bleach-like</td>
+                            <td class="py-4 px-4 text-gray-600">Musty/sewage (or none)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-4 font-medium text-gray-800">Taste</td>
+                            <td class="py-4 px-4 text-gray-600">Neutral</td>
+                            <td class="py-4 px-4 text-gray-600">Bitter/chemical</td>
+                            <td class="py-4 px-4 text-gray-600">Earthy (or normal)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-4 font-medium text-gray-800">Appearance</td>
+                            <td class="py-4 px-4 text-gray-600">Clear</td>
+                            <td class="py-4 px-4 text-gray-600">Clear/yellow-green tint</td>
+                            <td class="py-4 px-4 text-gray-600">Cloudy, particles</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-4 font-medium text-gray-800">Onset of Illness</td>
+                            <td class="py-4 px-4 text-gray-600">None</td>
+                            <td class="py-4 px-4 text-gray-600">Minutes-hours (burning)</td>
+                            <td class="py-4 px-4 text-gray-600">Hours-days (diarrhea)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-4 font-medium text-gray-800">Test Method</td>
+                            <td class="py-4 px-4 text-gray-600">EPA strip (all normal)</td>
+                            <td class="py-4 px-4 text-gray-600">Chlorine test strip</td>
+                            <td class="py-4 px-4 text-gray-600">Boil/filter + lab test</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-12 bg-blue-50 rounded-xl p-8 max-w-4xl mx-auto">
+                <div class="flex items-start">
+                    <div class="bg-blue-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-info-circle text-blue-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-800 mb-2">Important Notes</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                                <span>Chlorine is often used safely in water treatment (0.2–4 ppm). Only levels >4 ppm pose health risks.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                                <span>Cholera-contaminated water shows no visible signs in many cases—prioritize source safety (e.g., avoid floodwater).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                                <span>Always store water in clean, covered containers to prevent contamination.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Steps Section -->
+    <section id="actions" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Action Steps for Water Safety</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    What to do when you suspect water contamination
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Boil Water</h3>
+                    <p class="text-gray-600 mb-4">
+                        Bring water to a rolling boil for at least 1 minute (kills cholera and other pathogens).
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Effective against biological contaminants</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Does not remove chemical contaminants</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Use Certified Filters</h3>
+                    <p class="text-gray-600 mb-4">
+                        NSF/EPA-certified filters (e.g., reverse osmosis) remove many contaminants.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Look for filters that remove bacteria and chemicals</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Regularly maintain and replace filter cartridges</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-tablets"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-800">Chemical Disinfection</h3>
+                    <p class="text-gray-600 mb-4">
+                        Chlorine tablets or drops can disinfect water when boiling isn't possible.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Follow instructions carefully to avoid over-chlorination</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-400 mt-1 mr-2"></i>
+                            <span>Let treated water stand for 30 minutes before drinking</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-red-100 p-8 flex flex-col justify-center">
+                        <div class="text-red-600 text-4xl mb-4 text-center">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-center text-red-800">Seek Help If...</h3>
+                    </div>
+                    <div class="md:w-2/3 p-8">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                    <i class="fas fa-flask text-red-500 mr-2"></i>
+                                    Chemical Contamination
+                                </h4>
+                                <p class="text-gray-600 text-sm">
+                                    Contact local environmental agency if water smells/tastes chemical
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                    <i class="fas fa-hospital-user text-red-500 mr-2"></i>
+                                    Cholera Symptoms
+                                </h4>
+                                <p class="text-gray-600 text-sm">
+                                    Seek medical care immediately for diarrhea/dehydration (cholera is treatable)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Need Water Test Kits or More Information?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Get access to EPA-approved water test kits and detailed safety guidelines
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#" class="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    <i class="fas fa-vial mr-2"></i> Order Test Kits
+                </a>
+                <a href="#" class="border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    <i class="fas fa-book mr-2"></i> Download Guide
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400">
+                         Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="../articles.html" class="text-gray-400 hover:text-white transition">Articles</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>Greenhands550@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+249 123 456 789</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-500 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Green Hands. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+ <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Back to top button -->
+    <button id="back-to-top" class="hidden fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-opacity duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+         // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
