@@ -63,7 +63,7 @@
                 
             </div>
             <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
-                <i class="fas fa-hand-holding-heart mr-2"></i> Donate
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
             </button>
             <button class="md:hidden text-2xl" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -270,8 +270,15 @@
                     <p class="text-gray-400 mb-4">
                         Subscribe to get updates about our work and how you can help.
                     </p>
-                    <form class="flex">
-                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-green-500 w-full">
+                    <form class="flex" action="https://formspree.io/f/movweolq" method="POST">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Your email" 
+                            class="px-4 py-2 rounded-l-md bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-green-500 w-full" 
+                            required
+                        >
+                        
                         <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
                             <i class="fas fa-paper-plane"></i>
                         </button>
