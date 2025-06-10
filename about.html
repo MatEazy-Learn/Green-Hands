@@ -50,7 +50,7 @@
                 
             </div>
             <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
-                <i class="fas fa-hand-holding-heart mr-2"></i> Donate
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
             </button>
             <button class="md:hidden text-2xl" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -467,45 +467,26 @@
                 <div class="mt-12 lg:mt-0">
                     <div class="bg-white sm:max-w-md sm:w-full sm:mx-auto sm:rounded-lg sm:overflow-hidden">
                         <div class="px-4 py-8 sm:px-10">
-                            <form class="space-y-6">
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                                    <div class="mt-1">
-                                        <input id="name" name="name" type="text" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
-                                    </div>
+                            <form action="https://formspree.io/f/xvgrkjqa" method="POST">
+                                <div class="mb-6">
+                                    <label for="contactName" class="block text-gray-700 font-medium mb-2">Name</label>
+                                    <input type="text" id="contactName" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
                                 </div>
-
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                                    <div class="mt-1">
-                                        <input id="email" name="email" type="email" required class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
-                                    </div>
+                                <div class="mb-6">
+                                    <label for="contactEmail" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="contactEmail" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
                                 </div>
-
-                                <div>
-                                    <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
-                                    <div class="mt-1">
-                                        <select id="subject" name="subject" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500">
-                                            <option>General Inquiry</option>
-                                            <option>Volunteer Opportunity</option>
-                                            <option>Partnership Inquiry</option>
-                                            <option>Donation Question</option>
-                                        </select>
-                                    </div>
+                                <div class="mb-6">
+                                    <label for="contactSubject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                    <input type="text" id="contactSubject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required>
                                 </div>
-
-                                <div>
-                                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                    <div class="mt-1">
-                                        <textarea id="message" name="message" rows="4" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"></textarea>
-                                    </div>
+                                <div class="mb-6">
+                                    <label for="contactMessage" class="block text-gray-700 font-medium mb-2">Message</label>
+                                    <textarea id="contactMessage" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
                                 </div>
-
-                                <div>
-                                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                                        Send Message
-                                    </button>
-                                </div>
+                                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-semibold text-lg">
+                                    Send Message
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -556,8 +537,15 @@
                     <p class="text-gray-400 mb-4">
                         Subscribe to get updates about our work and how you can help.
                     </p>
-                    <form class="flex">
-                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-green-500 w-full">
+                    <form class="flex" action="https://formspree.io/f/movweolq" method="POST">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Your email" 
+                            class="px-4 py-2 rounded-l-md bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-green-500 w-full" 
+                            required
+                        >
+                        
                         <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -711,15 +699,7 @@
                 }
             });
         });
-        // Newsletter subscription
-        const newsletterForms = document.querySelectorAll('form:has(input[placeholder="Your email address"]), form:has(input[placeholder="Your email"])');
-        newsletterForms.forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for subscribing to our newsletter!');
-                this.reset();
-            });
-        });
+
 
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
