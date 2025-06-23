@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink October - Breast Cancer Awareness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f7;
+        }
+        
+        .pink-gradient {
+            background: linear-gradient(135deg, #f9c5d1 0%, #fce4ec 100%);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .ribbon {
+            position: relative;
+            padding: 15px 0;
+            background: #e83e8c;
+            color: white;
+            text-align: center;
+            margin: 1em auto;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        .ribbon:before, .ribbon:after {
+            content: "";
+            position: absolute;
+            display: block;
+            bottom: -15px;
+            border: 20px solid #c2185b;
+            z-index: -1;
+        }
+        
+        .ribbon:before {
+            left: -30px;
+            border-right-width: 25px;
+            border-left-color: transparent;
+        }
+        
+        .ribbon:after {
+            right: -30px;
+            border-left-width: 25px;
+            border-right-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="../index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="../about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="../Freshwater-Locations-South-Darfur.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">find Freshwater</a>
+                <a href="../articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="../index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="../about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="../Freshwater-Locations-South-Darfur.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">find Freshwater</a>
+            <a href="../articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-pink-500 opacity-20"></div>
+        <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="ribbon pulse-animation">
+                        <h2 class="text-xl md:text-2xl font-bold">Breast Cancer Awareness Month</h2>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold text-pink-800 mb-6">Together Against <span class="text-pink-600">Breast Cancer</span></h1>
+                    <p class="text-lg text-gray-700 mb-8">Join Green Hands Association and our partners in raising awareness about breast cancer prevention and early detection during Pink October.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#partners" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full transition duration-300">
+                            Our Partners
+                        </a>
+                        <a href="#events" class="border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white px-6 py-3 rounded-full transition duration-300">
+                            Upcoming Events
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="../image/Pink-October-Campaign.jpg" alt="Breast Cancer Awareness" class="rounded-lg shadow-xl w-full max-w-md border-8 border-white">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-hand-holding-heart text-pink-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-pink-700">Join the Movement</p>
+                                    <p class="text-sm text-gray-600">Make a difference today</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-pink-800 mb-12">Our Collaborative Partners</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <!-- Partner 1 -->
+                <div class="bg-pink-50 rounded-xl p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                        <i class="fas fa-leaf text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-pink-800 text-center">Green Hands Association</h3>
+                </div>
+                
+                <!-- Partner 2 -->
+                <div class="bg-pink-50 rounded-xl p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                        <i class="fas fa-home text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-pink-800 text-center">Sudanese Family Planning Association</h3>
+                </div>
+                
+                <!-- Partner 3 -->
+                <div class="bg-pink-50 rounded-xl p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                        <i class="fas fa-users text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="font-bold text-pink-800 text-center">Youth for Renaissance</h3>
+                </div>
+                
+                <!-- Partner 4 -->
+                <div class="bg-pink-50 rounded-xl p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                        <i class="fas fa-road text-3xl text-red-600"></i>
+                    </div>
+                    <h3 class="font-bold text-pink-800 text-center">Al-Hawadeth Street</h3>
+                </div>
+                
+                <!-- Partner 5 -->
+                <div class="bg-pink-50 rounded-xl p-6 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner mb-4">
+                        <i class="fas fa-hands-helping text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="font-bold text-pink-800 text-center">Nyala Calls You Association</h3>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-pink-100 rounded-xl p-8 text-center">
+                <h3 class="text-xl font-bold text-pink-800 mb-4">Al-Safana College and South Darfur, Nyala</h3>
+                <p class="text-gray-700">We are proud to collaborate with educational institutions across the region to spread awareness and promote early detection of breast cancer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-pink-800 mb-12">Upcoming Events & Activities</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-pink-600 flex items-center justify-center">
+                        <i class="fas fa-chalkboard-teacher text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-bold">Oct 15</div>
+                            <div class="ml-4 text-gray-600">9:00 AM - 12:00 PM</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-pink-800 mb-2">Awareness Workshop</h3>
+                        <p class="text-gray-700 mb-4">Educational session about breast cancer prevention and early detection signs.</p>
+                        <a href="#" class="text-pink-600 font-bold hover:text-pink-800 flex items-center">
+                            Register Now <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-pink-500 flex items-center justify-center">
+                        <i class="fas fa-walking text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-bold">Oct 20</div>
+                            <div class="ml-4 text-gray-600">7:00 AM - 10:00 AM</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-pink-800 mb-2">Pink Walkathon</h3>
+                        <p class="text-gray-700 mb-4">Community walk to raise awareness and funds for breast cancer research.</p>
+                        <a href="#" class="text-pink-600 font-bold hover:text-pink-800 flex items-center">
+                            Join the Walk <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-pink-400 flex items-center justify-center">
+                        <i class="fas fa-stethoscope text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-bold">Oct 25-27</div>
+                            <div class="ml-4 text-gray-600">All Day</div>
+                        </div>
+                        <h3 class="text-xl font-bold text-pink-800 mb-2">Free Screening Camp</h3>
+                        <p class="text-gray-700 mb-4">Free breast cancer screening and consultation with medical professionals.</p>
+                        <a href="#" class="text-pink-600 font-bold hover:text-pink-800 flex items-center">
+                            Book Appointment <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Achievement Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-green-50 rounded-2xl p-8 md:p-12 shadow-lg border-l-8 border-green-500">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-3/4 mb-8 md:mb-0">
+                        <h2 class="text-3xl font-bold text-green-800 mb-4">Capacity Development Achievement</h2>
+                        <p class="text-lg text-gray-700 mb-6">Praise be to God, the Green Hands Association has successfully concluded the first training workshop for the Capacity Development and Skills Enhancement Project.</p>
+                        <div class="flex items-center">
+                            <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-bold mr-4">#Green_Hands_All_Love</span>
+                            <a href="#" class="text-green-600 hover:text-green-800 font-bold flex items-center">
+                                See Photos <i class="fas fa-camera ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative">
+                            <img src="../image/Pink-October-Campaign-2.jpg" alt="Breast Cancer Awareness" class="rounded-lg shadow-xl w-full max-w-md border-8 border-white">
+                            <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-award text-green-600 text-5xl"></i>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-pink-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why This Matters</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-5xl font-bold mb-4">1 in 8</div>
+                    <p class="text-xl">women will develop breast cancer in their lifetime</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-5xl font-bold mb-4">98%</div>
+                    <p class="text-xl">survival rate when detected early at stage 1</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-5xl font-bold mb-4">40%</div>
+                    <p class="text-xl">reduction in breast cancer mortality with regular screening</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="bg-pink-100 rounded-2xl p-8 md:p-12 shadow-lg">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-8 md:mb-0">
+                        <h2 class="text-3xl font-bold text-pink-800 mb-4">Join Our Pink October Campaign</h2>
+                        <p class="text-lg text-gray-700 mb-6">Your support can make a difference in raising awareness and helping those affected by breast cancer in our community.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full transition duration-300 flex items-center">
+                                <i class="fas fa-hand-holding-heart mr-2"></i> Volunteer
+                            </a>
+                            <a href="#" class="border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white px-6 py-3 rounded-full transition duration-300 flex items-center">
+                                <i class="fas fa-share-alt mr-2"></i> Share
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Support Breast Cancer Awareness" class="rounded-full w-48 h-48 object-cover border-8 border-white shadow-md">
+                            <div class="absolute -bottom-4 -right-4 bg-pink-600 text-white p-3 rounded-full">
+                                <i class="fas fa-heart text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400">
+                         Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="../about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="../articles.html" class="text-gray-400 hover:text-white transition">Articles</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>Greenhands550@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+249 123 456 789</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-500 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Green Hands. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+     <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-pink-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+        
+    </script>
+</body>
+</html>
