@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Clothing Project | Together We Can</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            direction: rtl;
+        }
+        
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f3f4f6' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .wave-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-shape svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+        
+        .wave-shape .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                <span class="text-xl font-bold text-green-600">Green Hands</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="../index.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Home</a>
+                <a href="../about.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="../articles.html" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Articles</a>
+                
+            </div>
+            <button id="donate-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium pulse-animation">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+            </button>
+            <button class="md:hidden text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white px-4 py-2" id="mobile-menu">
+            <a href="../index.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+            <a href="../about.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+            <a href="../articles.html" class="text-gray-900 hover:text-green-600 block px-3 py-2 rounded-md text-base font-medium">Articles</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        Winter Clothing Project
+                    </h1>
+                    <p class="text-xl mb-8">
+                        Together we can bring warmth to those in need this winter
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#" class="bg-white text-blue-800 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold text-center transition duration-300">
+                            <i class="fas fa-hand-holding-heart mr-2"></i> Donate Now
+                        </a>
+                        <a href="#" class="border-2 border-white hover:bg-white hover:text-blue-800 px-8 py-3 rounded-lg font-bold text-center transition duration-300">
+                            <i class="fas fa-users mr-2"></i> Volunteer
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="../image/school1.jpg" 
+                         alt="Winter Clothing" 
+                         class="rounded-xl shadow-2xl max-w-full h-auto md:max-w-md">
+                </div>
+            </div>
+        </div>
+        <div class="wave-shape">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Project Announcement -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+                    <i class="fas fa-bullhorn mr-3"></i> Project Announcement
+                </h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl shadow-md p-8 md:p-10">
+                <div class="text-right">
+                    <p class="text-lg mb-6 leading-relaxed">
+                        <span class="text-2xl text-blue-600">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span><br>
+                        الحمد لله رب العالمين، والصلاة والسلام على أشرف المرسلين
+                    </p>
+                    
+                    <p class="text-lg mb-6 leading-relaxed">
+                        We are pleased to announce the completion of our second project (Health Awareness), which targeted several primary and secondary schools including:
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-blue-50 p-5 rounded-lg">
+                            <h3 class="font-bold text-blue-800 mb-3 text-lg">
+                                <i class="fas fa-school mr-2"></i> Primary Schools
+                            </h3>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-child mr-2 text-blue-600"></i> Musa</li>
+                                <li><i class="fas fa-child mr-2 text-blue-600"></i> Education</li>
+                                <li><i class="fas fa-child mr-2 text-blue-600"></i> Sudanese-Saudi Friendship</li>
+                                <li><i class="fas fa-child mr-2 text-blue-600"></i> Sudanese-Dutch Friendship</li>
+                                <li><i class="fas fa-child mr-2 text-blue-600"></i> Rayyan</li>
+                                <li><i class="fas fa-child mr-2 text-blue-600"></i> Naseeba</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 p-5 rounded-lg">
+                            <h3 class="font-bold text-green-800 mb-3 text-lg">
+                                <i class="fas fa-graduation-cap mr-2"></i> Secondary Schools
+                            </h3>
+                            <ul class="space-y-2">
+                                <li><i class="fas fa-user-graduate mr-2 text-green-600"></i> Mahara</li>
+                                <li><i class="fas fa-user-graduate mr-2 text-green-600"></i> Al-Zahraa</li>
+                                <li><i class="fas fa-user-graduate mr-2 text-green-600"></i> Umm Al-Mu'minin</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg mb-6 leading-relaxed">
+                        It was one of the most beautiful projects we have implemented, and we extend our sincere thanks to all the teachers (male and female) and to everyone who contributed and participated in making this project a success.
+                    </p>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-8">
+                        <p class="text-lg font-medium text-yellow-800">
+                            <i class="fas fa-star mr-2"></i> Now we face a new challenge and a new project, hoping to achieve excellence and uniqueness in it. Together, we can overcome difficulties. Let us join hands to make the Winter Clothing Project a success.
+                        </p>
+                    </div>
+                    
+                    <div class="flex justify-center mt-10">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold inline-flex items-center transition duration-300">
+                            <i class="fas fa-hands-helping mr-3"></i> Join Us in This Initiative
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+            <!-- Gallery Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Workshop Moments</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Image 1 -->
+                <div class="rounded-xl overflow-hidden shadow-md gallery-item">
+                    <img src="../image/school2.jpg" 
+                         alt="Training session" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="rounded-xl overflow-hidden shadow-md gallery-item">
+                    <img src="../image/school3.jpg" 
+                         alt="Group discussion" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="rounded-xl overflow-hidden shadow-md gallery-item">
+                    <img src="../image/school4.jpg" 
+                         alt="Practical demonstration" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="rounded-xl overflow-hidden shadow-md gallery-item">
+                    <img src="../image/school5.jpg" 
+                         alt="Team building" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="rounded-xl overflow-hidden shadow-md gallery-item">
+                    <img src="../image/school6.jpg" 
+                         alt="Certificate distribution" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        
+                    </div>
+                </div>
+                
+                <!-- Image 6 -->
+                <div class="rounded-xl overflow-hidden shadow-md gallery-item">
+                    <img src="../image/school7.jpg" 
+                         alt="Group photo" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Project Goals -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+                    <i class="fas fa-bullseye mr-3"></i> Project Goals
+                </h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-blue-600 text-4xl mb-4">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-800">Provide Warm Clothing</h3>
+                    <p class="text-gray-600">Distribute winter clothing to students in need to protect them from cold weather conditions.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-green-600 text-4xl mb-4">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-green-800">Community Support</h3>
+                    <p class="text-gray-600">Strengthen community bonds by encouraging participation and collective responsibility.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-800">Sustainable Impact</h3>
+                    <p class="text-gray-600">Create lasting impact by ensuring students can attend school comfortably during winter months.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Help -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+                    <i class="fas fa-hands-helping mr-3"></i> How You Can Help
+                </h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <div class="flex flex-col md:flex-row items-center gap-6 p-6 bg-blue-50 rounded-xl">
+                        <div class="bg-blue-100 p-4 rounded-full text-blue-600 text-2xl w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-donate"></i>
+                        </div>
+                        <div class="md:text-right">
+                            <h3 class="text-xl font-bold text-blue-800 mb-2">Financial Donations</h3>
+                            <p class="text-gray-600">Your monetary contributions help us purchase quality winter clothing in bulk at discounted prices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-6 p-6 bg-green-50 rounded-xl">
+                        <div class="bg-green-100 p-4 rounded-full text-green-600 text-2xl w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="md:text-right">
+                            <h3 class="text-xl font-bold text-green-800 mb-2">Clothing Donations</h3>
+                            <p class="text-gray-600">New or gently used winter clothing items (coats, sweaters, gloves, scarves, etc.) are greatly appreciated.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-center gap-6 p-6 bg-purple-50 rounded-xl">
+                        <div class="bg-purple-100 p-4 rounded-full text-purple-600 text-2xl w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="md:text-right">
+                            <h3 class="text-xl font-bold text-purple-800 mb-2">Volunteer</h3>
+                            <p class="text-gray-600">Join our team to help with collection, sorting, distribution, and awareness activities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-6 p-6 bg-yellow-50 rounded-xl">
+                        <div class="bg-yellow-100 p-4 rounded-full text-yellow-600 text-2xl w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="md:text-right">
+                            <h3 class="text-xl font-bold text-yellow-800 mb-2">Spread the Word</h3>
+                            <p class="text-gray-600">Share our campaign with your network to help us reach more potential supporters.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <a href="#" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i> Contact Us to Participate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+                    <i class="fas fa-comments mr-3"></i> What People Say
+                </h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xl mr-4">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Mr. Ahmed</h4>
+                            <p class="text-sm text-gray-500">School Principal</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The health awareness project was incredibly beneficial for our students. We're grateful for the initiative and look forward to the winter clothing project."
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xl mr-4">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Ms. Fatima</h4>
+                            <p class="text-sm text-gray-500">Teacher</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Our students still talk about the health awareness sessions. The winter clothing will be a huge help for many families struggling during cold months."
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-xl mr-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Mr. Khalid</h4>
+                            <p class="text-sm text-gray-500">Parent</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "As a parent, I appreciate these initiatives that directly benefit our children. The winter clothing will make a real difference in their daily lives."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Together We Can Make a Difference
+            </h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Your support can help provide warmth and comfort to students in need this winter season.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="bg-white text-blue-800 hover:bg-gray-100 px-8 py-3 rounded-lg font-bold inline-flex items-center transition duration-300">
+                    <i class="fas fa-donate mr-3"></i> Donate Now
+                </a>
+                <a href="#" class="border-2 border-white hover:bg-white hover:text-blue-800 px-8 py-3 rounded-lg font-bold inline-flex items-center transition duration-300">
+                    <i class="fas fa-phone-alt mr-3"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i><img src="../logo.png" alt="logo" width="50px" ></i>
+                        <span class="text-xl font-bold">Green Hands Charity</span>
+                    </div>
+                    <p class="text-gray-400">
+                         Committed to creating lasting change through compassion, action, and community empowerment.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Project</a></li>
+                        <li><a href="#impact" class="text-gray-400 hover:text-white transition">Impact</a></li>
+                        <li><a href="#cost" class="text-gray-400 hover:text-white transition">Cost Breakdown</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>Greenhands550@gmail.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>+249 123 456 789</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61564822453959&mibextid=ZbWKwL" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-green-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/saresearch_?t=z8JNBvKnBhccnlKYt8RDDw&s=09" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/saresearch_?igsh=MTU3M25xdm40eXJkMA==" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-500 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 Green Hands. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+ <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="bg-green-800 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Change a Life Today</h3>
+                    <button id="close-modal" class="text-white hover:text-indigo-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="mt-2 opacity-90">Your contribution could assist in feeding, sheltering, and educating poor children.</p>
+            </div>
+            
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">
+                    We are a charity association that relies on donations to keep and further our Charity Association. Your donation makes it possible.
+                </p>
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Select donation amount:</h4>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $5
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $10
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $20
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $50
+                        </button>
+                        <button class="donation-option bg-gray-100 hover:bg-indigo-100 border border-gray-300 rounded-lg py-3 transition">
+                            $100
+                        </button>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-gray-400">$</span>
+                            <input type="number" placeholder="Other" class="w-full pl-8 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-medium mb-3 text-gray-800">Payment method:</h4>
+                    <div class="space-y-3">
+                        <a href="https://www.paypal.com/paypalme/MohamedAbdalla405868?v=1&utm_source=unp&utm_medium=email&utm_campaign=RT000481&utm_unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&ppid=RT000481&cnac=EG&rsta=ar_EG%28ar-EG%29&cust=6BAVMJ5WBPYX2&unptid=df108508-494d-11ef-a38e-ac1f6bd38f46&calc=ac428a487463f&unp_tpcid=ppme-social-business-profile-created&page=main%3Aemail%3ART000481&pgrp=main%3Aemail&e=cl&mchn=em&s=ci&mail=sys&appVersion=1.266.0&tenant_name=PAYPAL&xt=145585%2C104038%2C127632&link_ref=paypalme_mohamedabdalla405868">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-paypal text-2xl text-blue-500 mr-3"></i>
+                                <span class="font-medium">PayPal</span>
+                            </div>
+                        </a>
+                        <a href="https://buymeacoffee.com/greenhands">
+                            <div class="flex items-center p-3 border border-gray-300 rounded-lg hover:border-indigo-500 cursor-pointer">
+                                <i class="fab fa-cc-stripe text-2xl text-purple-500 mr-3"></i>
+                                <span class="font-medium">Credit/Debit Card</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+                 // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Donation modal
+        const donateBtn = document.getElementById('donate-btn');
+        const donationModal = document.getElementById('donation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        donateBtn.addEventListener('click', () => {
+            donationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            donationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Donation option selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donationOptions.forEach(opt => {
+                    opt.classList.remove('bg-indigo-100', 'border-indigo-500');
+                });
+                option.classList.add('bg-indigo-100', 'border-indigo-500');
+            });
+        });
+        
+
+    </script>
+</body>
+</html>
